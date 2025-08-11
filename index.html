@@ -19,8 +19,11 @@
                     <button class="btn btn-primary btn-small" id="refresh-data">
                         <i class="fas fa-sync-alt"></i> Refresh Data
                     </button>
+                    <button class="btn btn-secondary btn-small" id="clear-cache">
+                        <i class="fas fa-trash"></i> Clear Cache
+                    </button>
                     <button class="btn btn-secondary btn-small" id="show-help">
-                        <i class="fas fa-keyboard"></i> Keyboard Shortcuts
+                        <i class="fas fa-question-circle"></i> Help
                     </button>
                 </div>
             </div>
@@ -76,26 +79,32 @@
                         <h3>Comprehensive Plan Coverage</h3>
                         <div class="coverage-grid">
                             <div class="coverage-item">
-                                <i class="fas fa-hospital"></i>
-                                <span class="coverage-label">Medicare Advantage</span>
-                                <span class="coverage-count" id="ma-count">0</span>
+                                <div class="stat-number" id="ma-count">0</div>
+                                <div class="stat-subtitle">Medicare Advantage Plans</div>
                             </div>
                             <div class="coverage-item">
-                                <i class="fas fa-heart"></i>
-                                <span class="coverage-label">Medicaid Plans</span>
-                                <span class="coverage-count" id="medicaid-count">0</span>
+                                <div class="stat-number" id="medicaid-count">0</div>
+                                <div class="stat-subtitle">Medicaid Plans</div>
                             </div>
                             <div class="coverage-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span class="coverage-label">States Covered</span>
-                                <span class="coverage-count" id="states-count">0</span>
+                                <div class="stat-number" id="states-count">0</div>
+                                <div class="stat-subtitle">States Covered</div>
                             </div>
                             <div class="coverage-item">
-                                <i class="fas fa-building"></i>
-                                <span class="coverage-label">Organizations</span>
-                                <span class="coverage-count" id="orgs-count">0</span>
+                                <div class="stat-number" id="orgs-count">0</div>
+                                <div class="stat-subtitle">Organizations</div>
                             </div>
                         </div>
+                    </div>
+                    
+                    <div class="regional-breakdown-section">
+                        <h3>Regional Breakdown</h3>
+                        <div id="regional-breakdown" class="regional-breakdown"></div>
+                    </div>
+                    
+                    <div class="cms-failure-section">
+                        <h3>CMS Performance Analysis</h3>
+                        <div id="cms-failure-analysis" class="cms-failure-analysis"></div>
                     </div>
 
                     <div class="member-breakdown">
@@ -116,7 +125,7 @@
                         <div class="filter-group">
                             <label for="plan-type">Plan Type:</label>
                             <select id="plan-type">
-                                <option value="all">All Plan Types</option>
+                                <option value="all">All Types</option>
                                 <option value="medicare">Medicare Advantage</option>
                                 <option value="medicaid">Medicaid</option>
                             </select>
@@ -124,12 +133,11 @@
                         <div class="filter-group">
                             <label for="star-filter">STAR Rating:</label>
                             <select id="star-filter">
-                                <option value="all">All STAR Ratings</option>
-                                <option value="5">5 Stars</option>
+                                <option value="all">All Ratings</option>
+                                <option value="5">5+ Stars</option>
                                 <option value="4">4+ Stars</option>
                                 <option value="3">3+ Stars</option>
                                 <option value="2">2+ Stars</option>
-                                <option value="1">1+ Stars</option>
                             </select>
                         </div>
                         <div class="filter-group">
@@ -141,10 +149,32 @@
                         <div class="filter-group">
                             <label for="plan-size-filter">Plan Size:</label>
                             <select id="plan-size-filter">
-                                <option value="all">All Plan Sizes</option>
-                                <option value="regional">Regional Plans</option>
-                                <option value="national">National Plans</option>
-                                <option value="california">California Plans</option>
+                                <option value="all">All Sizes</option>
+                                <option value="national">National</option>
+                                <option value="regional">Regional</option>
+                                <option value="california">California</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="region-filter">Region:</label>
+                            <select id="region-filter">
+                                <option value="all">All Regions</option>
+                                <option value="Northeast">Northeast</option>
+                                <option value="Midwest">Midwest</option>
+                                <option value="South">South</option>
+                                <option value="West">West</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="cms-failure-filter">CMS Failures:</label>
+                            <select id="cms-failure-filter">
+                                <option value="all">All Plans</option>
+                                <option value="no-failures">No Failures</option>
+                                <option value="has-failures">Has Failures</option>
+                                <option value="critical-failures">Critical Failures</option>
+                                <option value="high-failures">High Impact</option>
+                                <option value="medium-failures">Medium Impact</option>
+                                <option value="low-failures">Low Impact</option>
                             </select>
                         </div>
                     </div>
@@ -169,8 +199,11 @@
                                     <th>Plan Name</th>
                                     <th>Type</th>
                                     <th>State</th>
+                                    <th>Region</th>
                                     <th>STAR Rating</th>
+                                    <th>NCQA Rating</th>
                                     <th>Members</th>
+                                    <th>CMS Issues</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>

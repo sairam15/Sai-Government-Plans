@@ -1680,3 +1680,714 @@ body {
     font-weight: 500;
     line-height: 1.4;
 } 
+
+/* Regional Breakdown Styles */
+.regional-breakdown-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.regional-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.region-stat {
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.region-stat h4 {
+    margin: 0 0 0.5rem 0;
+    color: #1e293b;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.region-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.region-metrics .metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0;
+}
+
+.region-metrics .label {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.region-metrics .value {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* CMS Failure Analysis Styles */
+.cms-failure-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #fef2f2;
+    border-radius: 8px;
+    border: 1px solid #fecaca;
+}
+
+.cms-failure-analysis {
+    margin-top: 1rem;
+}
+
+.failure-summary h3 {
+    margin: 0 0 1rem 0;
+    color: #dc2626;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.failure-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.failure-stat {
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #fecaca;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.failure-stat .label {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.failure-stat .value {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.failure-stat .value.critical {
+    color: #dc2626;
+}
+
+.failure-stat .value.high {
+    color: #ea580c;
+}
+
+.failure-stat .value.medium {
+    color: #d97706;
+}
+
+.failure-stat .value.low {
+    color: #059669;
+}
+
+/* Enhanced Filter Styles */
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 150px;
+}
+
+.filter-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.filter-group select {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    background: white;
+    font-size: 0.9rem;
+    color: #374151;
+    transition: border-color 0.2s;
+}
+
+.filter-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Enhanced Plan Details with CMS Data */
+.cms-performance {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.cms-criterion {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.criterion-name {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.criterion-score {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.criterion-score .score {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 1.1rem;
+}
+
+.cms-failures {
+    margin: 1rem 0;
+}
+
+.cms-failure {
+    background: #fef2f2;
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 4px solid #dc2626;
+    margin-bottom: 1rem;
+}
+
+.cms-failure.critical-impact {
+    border-left-color: #dc2626;
+    background: #fef2f2;
+}
+
+.cms-failure.high-impact {
+    border-left-color: #ea580c;
+    background: #fff7ed;
+}
+
+.cms-failure.medium-impact {
+    border-left-color: #d97706;
+    background: #fffbeb;
+}
+
+.cms-failure.low-impact {
+    border-left-color: #059669;
+    background: #f0fdf4;
+}
+
+.failure-criteria {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.failure-details {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.failure-details span {
+    padding: 0.25rem 0.5rem;
+    background: white;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Cache Management Styles */
+.cache-info {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #0369a1;
+}
+
+.cache-info .cache-status {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.cache-info .cache-details {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Enhanced Table Styles for CMS Data */
+.plans-table th.cms-failures-column {
+    min-width: 120px;
+}
+
+.cms-failure-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.cms-failure-indicator.no-failures {
+    background: #f0fdf4;
+    color: #059669;
+    border: 1px solid #bbf7d0;
+}
+
+.cms-failure-indicator.has-failures {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.cms-failure-indicator.critical {
+    background: #dc2626;
+    color: white;
+    border: 1px solid #dc2626;
+}
+
+/* NCQA Rating Styles */
+.ncqa-rating {
+    text-align: center;
+}
+
+.ncqa-indicator {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.ncqa-score {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.ncqa-rating-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ncqa-level {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.ncqa-score {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* Rating Comparison Styles */
+.rating-comparison {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.rating-comparison h3 {
+    margin: 0 0 1rem 0;
+    color: #1e293b;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.ratings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.rating-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.rating-card h4 {
+    margin: 0 0 1rem 0;
+    color: #1e293b;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.rating-value {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.rating-value .stars {
+    display: flex;
+    gap: 0.125rem;
+}
+
+.rating-value .rating-number {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.rating-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* NCQA Details Styles */
+.ncqa-details {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f0f9ff;
+    border-radius: 8px;
+    border: 1px solid #bae6fd;
+}
+
+.ncqa-details h3 {
+    margin: 0 0 1rem 0;
+    color: #0369a1;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.ncqa-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.ncqa-detail-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.ncqa-detail-item strong {
+    color: #1e293b;
+    font-size: 0.9rem;
+}
+
+.ncqa-detail-item:not(:has(strong)) {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* Enhanced Table Styles for NCQA */
+.plans-table th.ncqa-rating-column {
+    min-width: 120px;
+}
+
+/* NCQA Level Color Indicators */
+.ncqa-indicator[style*="color: #059669"] {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.ncqa-indicator[style*="color: #0891b2"] {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.ncqa-indicator[style*="color: #7c3aed"] {
+    background: #faf5ff;
+    border: 1px solid #e9d5ff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.ncqa-indicator[style*="color: #d97706"] {
+    background: #fffbeb;
+    border: 1px solid #fed7aa;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.ncqa-indicator[style*="color: #dc2626"] {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* Responsive Design for NCQA */
+@media (max-width: 768px) {
+    .ratings-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ncqa-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .ncqa-rating-detail {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .rating-value {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 1024px) {
+    .filters {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .plans-table {
+        font-size: 0.85rem;
+    }
+    
+    .plans-table th,
+    .plans-table td {
+        padding: 0.5rem 0.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .filters {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .regional-breakdown {
+        grid-template-columns: 1fr;
+    }
+    
+    .failure-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .cms-performance {
+        grid-template-columns: 1fr;
+    }
+    
+    .failure-details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .filter-group {
+        min-width: 100%;
+    }
+    
+    .plans-table {
+        font-size: 0.8rem;
+    }
+    
+    .plans-table th,
+    .plans-table td {
+        padding: 0.25rem 0.125rem;
+    }
+    
+    .cms-failure-indicator {
+        font-size: 0.7rem;
+        padding: 0.125rem 0.25rem;
+    }
+} 
+
+/* Loading States for Enhanced Data */
+.loading-enhanced {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.loading-enhanced .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #e2e8f0;
+    border-top: 2px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Enhanced Plan Details Styles */
+.failure-description {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
+.failure-recommendations {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+.failure-recommendations strong {
+    color: #1e293b;
+    font-size: 0.9rem;
+}
+
+.failure-recommendations ul {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.5rem;
+}
+
+.failure-recommendations li {
+    margin: 0.25rem 0;
+    font-size: 0.85rem;
+    color: #475569;
+    line-height: 1.4;
+}
+
+.success-message {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #059669;
+    padding: 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.plan-metadata {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.plan-metadata p {
+    margin: 0.25rem 0;
+}
+
+.plan-metadata strong {
+    color: #374151;
+}
+
+/* Enhanced Table Header Styles */
+.plans-table th {
+    background: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 1rem 0.75rem;
+    font-weight: 600;
+    color: #374151;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.plans-table th:first-child {
+    border-top-left-radius: 6px;
+}
+
+.plans-table th:last-child {
+    border-top-right-radius: 6px;
+}
+
+/* Enhanced Filter Layout */
+.filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Cache Status Indicator */
+.cache-status-indicator {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    color: #0369a1;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.cache-status-indicator.show {
+    display: block;
+}
+
+.cache-status-indicator .cache-icon {
+    margin-right: 0.5rem;
+}
+
+/* Enhanced Loading States */
+.loading-overlay .loading-content h3 {
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.loading-overlay .loading-content p {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 1024px) {
+    .filters {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .plans-table {
+        font-size: 0.85rem;
+    }
+    
+    .plans-table th,
+    .plans-table td {
+        padding: 0.5rem 0.25rem;
+    }
+} 
