@@ -1,0 +1,3323 @@
+script.js:129 🔄 Cache miss or expired, loading fresh data
+script.js:228 🔄 Starting comprehensive data import with CORS handling and fallback generation...
+script.js:460 🔄 Attempting to fetch from jsonplaceholder...
+script.js:481 ✅ jsonplaceholder: Successfully fetched and transformed 100 plans
+script.js:253 ✅ jsonplaceholder: 100 plans
+script.js:264 ⏳ Waiting 1482ms before next request...
+script.js:460 🔄 Attempting to fetch from randomuser...
+script.js:481 ✅ randomuser: Successfully fetched and transformed 50 plans
+script.js:253 ✅ randomuser: 50 plans
+script.js:264 ⏳ Waiting 2452ms before next request...
+script.js:460 🔄 Attempting to fetch from cms_medicare_plans...
+index.html:1 Access to fetch at 'https://data.cms.gov/provider-data/api/1/datastore/query/medicare-advantage-plans/0' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://data.cms.gov/provider-data/api/1/datastore/query/medicare-advantage-plans/0 net::ERR_FAILED 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fdata.cms.gov%2Fprovider-data%2Fapi%2F1%2Fdatastore%2Fquery%2Fmedicare-advantage-plans%2F0 403 (Forbidden)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+index.html:1 Access to fetch at 'https://api.allorigins.win/raw?url=https%3A%2F%2Fdata.cms.gov%2Fprovider-data%2Fapi%2F1%2Fdatastore%2Fquery%2Fmedicare-advantage-plans%2F0' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fdata.cms.gov%2Fprovider-data%2Fapi%2F1%2Fdatastore%2Fquery%2Fmedicare-advantage-plans%2F0 net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 2 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fdata.cms.gov%2Fprovider-data%2Fapi%2F1%2Fdatastore%2Fquery%2Fmedicare-advantage-plans%2F0 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fdata.cms.gov%2Fprovider-data%2Fapi%2F1%2Fdatastore%2Fquery%2Fmedicare-advantage-plans%2F0 net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fdata.cms.gov%2Fprovider-data%2Fapi%2F1%2Fdatastore%2Fquery%2Fmedicare-advantage-plans%2F0' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fdata.cms.gov%2Fprovider-data%2Fapi%2F1%2Fdatastore%2Fquery%2Fmedicare-advantage-plans%2F0 net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ cms_medicare_plans: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ cms_medicare_plans: No data available
+script.js:264 ⏳ Waiting 1547ms before next request...
+script.js:460 🔄 Attempting to fetch from healthcare_gov_plans...
+index.html:1 Access to fetch at 'https://www.healthcare.gov/api/plans.json' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://www.healthcare.gov/api/plans.json net::ERR_FAILED 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fwww.healthcare.gov%2Fapi%2Fplans.json 403 (Forbidden)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+index.html:1 Access to fetch at 'https://api.allorigins.win/raw?url=https%3A%2F%2Fwww.healthcare.gov%2Fapi%2Fplans.json' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fwww.healthcare.gov%2Fapi%2Fplans.json net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 2 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fwww.healthcare.gov%2Fapi%2Fplans.json 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fwww.healthcare.gov%2Fapi%2Fplans.json net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fwww.healthcare.gov%2Fapi%2Fplans.json' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fwww.healthcare.gov%2Fapi%2Fplans.json net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ healthcare_gov_plans: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ healthcare_gov_plans: No data available
+script.js:264 ⏳ Waiting 2174ms before next request...
+script.js:460 🔄 Attempting to fetch from medicare_gov_data...
+script.js:495  GET https://data.medicare.gov/resource/plan-data.json 503 (Service Unavailable)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fdata.medicare.gov%2Fresource%2Fplan-data.json 403 (Forbidden)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:485 ⚠️ medicare_gov_data failed: Unexpected end of JSON input
+fetchDataFromSource @ script.js:485
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ medicare_gov_data: No data available
+script.js:264 ⏳ Waiting 2316ms before next request...
+script.js:460 🔄 Attempting to fetch from california_medicaid...
+script.js:495  GET https://data.ca.gov/api/3/action/datastore_search?resource_id=medicaid-plans 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:569 ⚠️ Unknown data format for california_medicaid
+transformApiData @ script.js:569
+fetchDataFromSource @ script.js:479
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:481 ✅ california_medicaid: Successfully fetched and transformed 0 plans
+script.js:255 ❌ california_medicaid: No data available
+script.js:264 ⏳ Waiting 1758ms before next request...
+script.js:460 🔄 Attempting to fetch from texas_medicaid...
+script.js:495  GET https://data.texas.gov/api/3/action/datastore_search?resource_id=medicaid-managed-care 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:569 ⚠️ Unknown data format for texas_medicaid
+transformApiData @ script.js:569
+fetchDataFromSource @ script.js:479
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:481 ✅ texas_medicaid: Successfully fetched and transformed 0 plans
+script.js:255 ❌ texas_medicaid: No data available
+script.js:264 ⏳ Waiting 1053ms before next request...
+script.js:460 🔄 Attempting to fetch from florida_medicaid...
+script.js:495  GET https://data.florida.gov/api/3/action/datastore_search?resource_id=medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fdata.florida.gov%2Fapi%2F3%2Faction%2Fdatastore_search%3Fresource_id%3Dmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fdata.florida.gov%2Fapi%2F3%2Faction%2Fdatastore_search%3Fresource_id%3Dmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fdata.florida.gov%2Fapi%2F3%2Faction%2Fdatastore_search%3Fresource_id%3Dmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fdata.florida.gov%2Fapi%2F3%2Faction%2Fdatastore_search%3Fresource_id%3Dmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fdata.florida.gov%2Fapi%2F3%2Faction%2Fdatastore_search%3Fresource_id%3Dmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fdata.florida.gov%2Fapi%2F3%2Faction%2Fdatastore_search%3Fresource_id%3Dmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ florida_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ florida_medicaid: No data available
+script.js:264 ⏳ Waiting 1006ms before next request...
+script.js:460 🔄 Attempting to fetch from new_york_medicaid...
+script.js:495  GET https://data.ny.gov/api/3/action/datastore_search?resource_id=medicaid-managed-care 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:569 ⚠️ Unknown data format for new_york_medicaid
+transformApiData @ script.js:569
+fetchDataFromSource @ script.js:479
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:481 ✅ new_york_medicaid: Successfully fetched and transformed 0 plans
+script.js:255 ❌ new_york_medicaid: No data available
+script.js:264 ⏳ Waiting 1203ms before next request...
+script.js:460 🔄 Attempting to fetch from ncqa_accreditation...
+index.html:1 Access to fetch at 'https://www.ncqa.org/api/accreditation-data' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://www.ncqa.org/api/accreditation-data net::ERR_FAILED 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:485 ⚠️ ncqa_accreditation failed: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+fetchDataFromSource @ script.js:485
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ ncqa_accreditation: No data available
+script.js:264 ⏳ Waiting 2098ms before next request...
+script.js:460 🔄 Attempting to fetch from ahip_plans...
+index.html:1 Access to fetch at 'https://www.ahip.org/api/health-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://www.ahip.org/api/health-plans net::ERR_FAILED 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:485 ⚠️ ahip_plans failed: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+fetchDataFromSource @ script.js:485
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ ahip_plans: No data available
+script.js:264 ⏳ Waiting 1225ms before next request...
+script.js:460 🔄 Attempting to fetch from kaiser_permanente...
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.kaiserpermanente.org%2Fplans 408 (Request Timeout)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.kaiserpermanente.org%2Fplans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.kaiserpermanente.org%2Fplans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.kaiserpermanente.org%2Fplans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.kaiserpermanente.org%2Fplans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.kaiserpermanente.org%2Fplans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ kaiser_permanente: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ kaiser_permanente: No data available
+script.js:264 ⏳ Waiting 2116ms before next request...
+script.js:460 🔄 Attempting to fetch from blue_cross_plans...
+script.js:495  GET https://api.bcbs.com/plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.bcbs.com%2Fplans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.bcbs.com%2Fplans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.bcbs.com%2Fplans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.bcbs.com%2Fplans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.bcbs.com%2Fplans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.bcbs.com%2Fplans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ blue_cross_plans: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ blue_cross_plans: No data available
+script.js:264 ⏳ Waiting 1408ms before next request...
+script.js:460 🔄 Attempting to fetch from aetna_plans...
+index.html:1 Access to fetch at 'https://api.aetna.com/medicare-plans' from origin 'null' has been blocked by CORS policy: The 'Access-Control-Allow-Origin' header contains the invalid value 'api.aetna.com'. Have the server send the header with a valid value.
+script.js:495  GET https://api.aetna.com/medicare-plans net::ERR_FAILED 403 (Forbidden)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:485 ⚠️ aetna_plans failed: Unexpected token 'N', "Not Authorized.
+" is not valid JSON
+fetchDataFromSource @ script.js:485
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ aetna_plans: No data available
+script.js:264 ⏳ Waiting 1200ms before next request...
+script.js:460 🔄 Attempting to fetch from humana_plans...
+script.js:495  GET https://api.humana.com/medicare-advantage net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.humana.com%2Fmedicare-advantage 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.humana.com%2Fmedicare-advantage 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.humana.com%2Fmedicare-advantage net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.humana.com%2Fmedicare-advantage' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.humana.com%2Fmedicare-advantage net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.humana.com%2Fmedicare-advantage 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ humana_plans: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ humana_plans: No data available
+script.js:264 ⏳ Waiting 2236ms before next request...
+script.js:460 🔄 Attempting to fetch from unitedhealthcare...
+script.js:495  GET https://api.uhc.com/medicare-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.uhc.com%2Fmedicare-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.uhc.com%2Fmedicare-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.uhc.com%2Fmedicare-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.uhc.com%2Fmedicare-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.uhc.com%2Fmedicare-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.uhc.com%2Fmedicare-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ unitedhealthcare: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ unitedhealthcare: No data available
+script.js:264 ⏳ Waiting 2575ms before next request...
+script.js:460 🔄 Attempting to fetch from cigna_plans...
+index.html:1 Access to fetch at 'https://api.cigna.com/medicare-advantage' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://api.cigna.com/medicare-advantage net::ERR_FAILED 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:485 ⚠️ cigna_plans failed: Unexpected token '<', "<!doctype "... is not valid JSON
+fetchDataFromSource @ script.js:485
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ cigna_plans: No data available
+script.js:264 ⏳ Waiting 2390ms before next request...
+script.js:460 🔄 Attempting to fetch from anthem_plans...
+index.html:1 Access to fetch at 'https://api.anthem.com/medicare-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://api.anthem.com/medicare-plans net::ERR_FAILED 200 (OK)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.anthem.com%2Fmedicare-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.anthem.com%2Fmedicare-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.anthem.com%2Fmedicare-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.anthem.com%2Fmedicare-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.anthem.com%2Fmedicare-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.anthem.com%2Fmedicare-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ anthem_plans: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ anthem_plans: No data available
+script.js:264 ⏳ Waiting 1708ms before next request...
+script.js:460 🔄 Attempting to fetch from molina_healthcare...
+index.html:1 Access to fetch at 'https://api.molinahealthcare.com/medicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://api.molinahealthcare.com/medicaid-plans net::ERR_FAILED 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:569 ⚠️ Unknown data format for molina_healthcare
+transformApiData @ script.js:569
+fetchDataFromSource @ script.js:479
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:481 ✅ molina_healthcare: Successfully fetched and transformed 0 plans
+script.js:255 ❌ molina_healthcare: No data available
+script.js:264 ⏳ Waiting 2850ms before next request...
+script.js:460 🔄 Attempting to fetch from centene_plans...
+index.html:1 Access to fetch at 'https://api.centene.com/medicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://api.centene.com/medicaid-plans net::ERR_FAILED 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:485 ⚠️ centene_plans failed: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+fetchDataFromSource @ script.js:485
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ centene_plans: No data available
+script.js:264 ⏳ Waiting 2060ms before next request...
+script.js:460 🔄 Attempting to fetch from wellcare_plans...
+script.js:495  GET https://api.wellcare.com/medicare-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.wellcare.com%2Fmedicare-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.wellcare.com%2Fmedicare-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.wellcare.com%2Fmedicare-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.wellcare.com%2Fmedicare-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.wellcare.com%2Fmedicare-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.wellcare.com%2Fmedicare-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ wellcare_plans: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ wellcare_plans: No data available
+script.js:264 ⏳ Waiting 1438ms before next request...
+script.js:460 🔄 Attempting to fetch from cvs_health...
+index.html:1 Access to fetch at 'https://api.cvshealth.com/medicare-plans' from origin 'null' has been blocked by CORS policy: The 'Access-Control-Allow-Origin' header contains the invalid value 'api.cvshealth.com'. Have the server send the header with a valid value.
+script.js:495  GET https://api.cvshealth.com/medicare-plans net::ERR_FAILED 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:569 ⚠️ Unknown data format for cvs_health
+transformApiData @ script.js:569
+fetchDataFromSource @ script.js:479
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:481 ✅ cvs_health: Successfully fetched and transformed 0 plans
+script.js:255 ❌ cvs_health: No data available
+script.js:264 ⏳ Waiting 1456ms before next request...
+script.js:460 🔄 Attempting to fetch from optum_plans...
+index.html:1 Access to fetch at 'https://api.optum.com/medicare-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://api.optum.com/medicare-plans net::ERR_FAILED 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:569 ⚠️ Unknown data format for optum_plans
+transformApiData @ script.js:569
+fetchDataFromSource @ script.js:479
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:481 ✅ optum_plans: Successfully fetched and transformed 0 plans
+script.js:255 ❌ optum_plans: No data available
+script.js:264 ⏳ Waiting 2344ms before next request...
+script.js:460 🔄 Attempting to fetch from care_source...
+index.html:1 Access to fetch at 'https://api.caresource.com/medicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://api.caresource.com/medicaid-plans net::ERR_FAILED 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:485 ⚠️ care_source failed: Unexpected token '<', "<?xml vers"... is not valid JSON
+fetchDataFromSource @ script.js:485
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ care_source: No data available
+script.js:264 ⏳ Waiting 1824ms before next request...
+script.js:460 🔄 Attempting to fetch from ohio_medicaid...
+script.js:495  GET https://api.ohio.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.ohio.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.ohio.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.ohio.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.ohio.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.ohio.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.ohio.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ ohio_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ ohio_medicaid: No data available
+script.js:264 ⏳ Waiting 1471ms before next request...
+script.js:460 🔄 Attempting to fetch from michigan_medicaid...
+script.js:495  GET https://api.michigan.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.michigan.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.michigan.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.michigan.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.michigan.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.michigan.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.michigan.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ michigan_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ michigan_medicaid: No data available
+script.js:264 ⏳ Waiting 2611ms before next request...
+script.js:460 🔄 Attempting to fetch from illinois_medicaid...
+script.js:495  GET https://api.illinois.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.illinois.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.illinois.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.illinois.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.illinois.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.illinois.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.illinois.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ illinois_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ illinois_medicaid: No data available
+script.js:264 ⏳ Waiting 2203ms before next request...
+script.js:460 🔄 Attempting to fetch from pennsylvania_medicaid...
+script.js:495  GET https://api.pa.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.pa.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.pa.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.pa.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.pa.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.pa.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.pa.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ pennsylvania_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ pennsylvania_medicaid: No data available
+script.js:264 ⏳ Waiting 2252ms before next request...
+script.js:460 🔄 Attempting to fetch from georgia_medicaid...
+script.js:495  GET https://api.georgia.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.georgia.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.georgia.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.georgia.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.georgia.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.georgia.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.georgia.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ georgia_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ georgia_medicaid: No data available
+script.js:264 ⏳ Waiting 2217ms before next request...
+script.js:460 🔄 Attempting to fetch from north_carolina_medicaid...
+index.html:1 Access to fetch at 'https://api.nc.gov/medicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://api.nc.gov/medicaid-plans net::ERR_FAILED 403 (Forbidden)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:569 ⚠️ Unknown data format for north_carolina_medicaid
+transformApiData @ script.js:569
+fetchDataFromSource @ script.js:479
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:481 ✅ north_carolina_medicaid: Successfully fetched and transformed 0 plans
+script.js:255 ❌ north_carolina_medicaid: No data available
+script.js:264 ⏳ Waiting 1828ms before next request...
+script.js:460 🔄 Attempting to fetch from virginia_medicaid...
+script.js:495  GET https://api.virginia.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.virginia.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.virginia.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.virginia.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.virginia.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.virginia.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.virginia.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ virginia_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ virginia_medicaid: No data available
+script.js:264 ⏳ Waiting 2309ms before next request...
+script.js:460 🔄 Attempting to fetch from tennessee_medicaid...
+index.html:1 Access to fetch at 'https://api.tn.gov/medicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://api.tn.gov/medicaid-plans net::ERR_FAILED 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:485 ⚠️ tennessee_medicaid failed: Failed to execute 'json' on 'Response': Unexpected end of JSON input
+fetchDataFromSource @ script.js:485
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ tennessee_medicaid: No data available
+script.js:264 ⏳ Waiting 2667ms before next request...
+script.js:460 🔄 Attempting to fetch from missouri_medicaid...
+script.js:495  GET https://api.mo.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.mo.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.mo.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.mo.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.mo.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.mo.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.mo.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ missouri_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ missouri_medicaid: No data available
+script.js:264 ⏳ Waiting 2119ms before next request...
+script.js:460 🔄 Attempting to fetch from wisconsin_medicaid...
+script.js:495  GET https://api.wi.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.wi.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.wi.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.wi.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.wi.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.wi.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.wi.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ wisconsin_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ wisconsin_medicaid: No data available
+script.js:264 ⏳ Waiting 1739ms before next request...
+script.js:460 🔄 Attempting to fetch from minnesota_medicaid...
+script.js:495  GET https://api.mn.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+index.html:1 Access to fetch at 'https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.mn.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.mn.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 2 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.mn.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.mn.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.mn.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.mn.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.mn.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ minnesota_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ minnesota_medicaid: No data available
+script.js:264 ⏳ Waiting 2140ms before next request...
+script.js:460 🔄 Attempting to fetch from colorado_medicaid...
+script.js:495  GET https://api.colorado.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+index.html:1 Access to fetch at 'https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.colorado.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.colorado.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 2 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.colorado.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.colorado.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.colorado.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.colorado.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.colorado.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ colorado_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ colorado_medicaid: No data available
+script.js:264 ⏳ Waiting 1905ms before next request...
+script.js:460 🔄 Attempting to fetch from arizona_medicaid...
+index.html:1 Access to fetch at 'https://api.az.gov/medicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://api.az.gov/medicaid-plans net::ERR_FAILED 403 (Forbidden)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:569 ⚠️ Unknown data format for arizona_medicaid
+transformApiData @ script.js:569
+fetchDataFromSource @ script.js:479
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:481 ✅ arizona_medicaid: Successfully fetched and transformed 0 plans
+script.js:255 ❌ arizona_medicaid: No data available
+script.js:264 ⏳ Waiting 2712ms before next request...
+script.js:460 🔄 Attempting to fetch from nevada_medicaid...
+script.js:495  GET https://api.nv.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.nv.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.nv.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.nv.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.nv.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.nv.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.nv.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ nevada_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ nevada_medicaid: No data available
+script.js:264 ⏳ Waiting 1656ms before next request...
+script.js:460 🔄 Attempting to fetch from utah_medicaid...
+index.html:1 Access to fetch at 'https://api.utah.gov/medicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://api.utah.gov/medicaid-plans net::ERR_FAILED 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:485 ⚠️ utah_medicaid failed: Failed to execute 'json' on 'Response': Unexpected end of JSON input
+fetchDataFromSource @ script.js:485
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ utah_medicaid: No data available
+script.js:264 ⏳ Waiting 2590ms before next request...
+script.js:460 🔄 Attempting to fetch from new_mexico_medicaid...
+script.js:495  GET https://api.nm.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.nm.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+Fetch failed loading: GET "<URL>".
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.nm.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.nm.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.nm.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.nm.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.nm.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ new_mexico_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ new_mexico_medicaid: No data available
+script.js:264 ⏳ Waiting 1119ms before next request...
+script.js:460 🔄 Attempting to fetch from oklahoma_medicaid...
+script.js:495  GET https://api.ok.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.ok.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.ok.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.ok.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.ok.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.ok.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.ok.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ oklahoma_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ oklahoma_medicaid: No data available
+script.js:264 ⏳ Waiting 1233ms before next request...
+script.js:460 🔄 Attempting to fetch from arkansas_medicaid...
+script.js:495  GET https://api.ar.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.ar.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.ar.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.ar.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.ar.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.ar.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.ar.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ arkansas_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ arkansas_medicaid: No data available
+script.js:264 ⏳ Waiting 2009ms before next request...
+script.js:460 🔄 Attempting to fetch from louisiana_medicaid...
+script.js:495  GET https://api.la.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.la.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.la.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.la.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.la.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.la.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.la.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ louisiana_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ louisiana_medicaid: No data available
+script.js:264 ⏳ Waiting 1474ms before next request...
+script.js:460 🔄 Attempting to fetch from mississippi_medicaid...
+script.js:495  GET https://api.ms.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.ms.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.ms.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.ms.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.ms.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.ms.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.ms.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ mississippi_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ mississippi_medicaid: No data available
+script.js:264 ⏳ Waiting 1530ms before next request...
+script.js:460 🔄 Attempting to fetch from alabama_medicaid...
+script.js:495  GET https://api.al.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.al.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.al.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.al.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.al.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.al.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.al.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ alabama_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ alabama_medicaid: No data available
+script.js:264 ⏳ Waiting 1633ms before next request...
+script.js:460 🔄 Attempting to fetch from south_carolina_medicaid...
+script.js:495  GET https://api.sc.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.sc.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.sc.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.sc.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.sc.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.sc.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.sc.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ south_carolina_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ south_carolina_medicaid: No data available
+script.js:264 ⏳ Waiting 2917ms before next request...
+script.js:460 🔄 Attempting to fetch from kentucky_medicaid...
+script.js:495  GET https://api.ky.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.ky.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.ky.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.ky.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.ky.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.ky.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.ky.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ kentucky_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ kentucky_medicaid: No data available
+script.js:264 ⏳ Waiting 2428ms before next request...
+script.js:460 🔄 Attempting to fetch from west_virginia_medicaid...
+script.js:495  GET https://api.wv.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.wv.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.wv.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.wv.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.wv.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.wv.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.wv.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ west_virginia_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ west_virginia_medicaid: No data available
+script.js:264 ⏳ Waiting 2020ms before next request...
+script.js:460 🔄 Attempting to fetch from maryland_medicaid...
+script.js:495  GET https://api.maryland.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.maryland.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.maryland.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.maryland.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.maryland.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.maryland.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.maryland.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ maryland_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ maryland_medicaid: No data available
+script.js:264 ⏳ Waiting 2499ms before next request...
+script.js:460 🔄 Attempting to fetch from delaware_medicaid...
+script.js:495  GET https://api.delaware.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.delaware.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.delaware.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.delaware.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.delaware.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.delaware.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.delaware.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ delaware_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ delaware_medicaid: No data available
+script.js:264 ⏳ Waiting 1619ms before next request...
+script.js:460 🔄 Attempting to fetch from new_jersey_medicaid...
+script.js:495  GET https://api.nj.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.nj.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.nj.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.nj.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.nj.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.nj.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.nj.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ new_jersey_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ new_jersey_medicaid: No data available
+script.js:264 ⏳ Waiting 2565ms before next request...
+script.js:460 🔄 Attempting to fetch from connecticut_medicaid...
+script.js:495  GET https://api.ct.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.ct.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.ct.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.ct.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.ct.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.ct.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.ct.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ connecticut_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ connecticut_medicaid: No data available
+script.js:264 ⏳ Waiting 1745ms before next request...
+script.js:460 🔄 Attempting to fetch from rhode_island_medicaid...
+script.js:495  GET https://api.ri.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.ri.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.ri.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.ri.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.ri.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.ri.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.ri.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ rhode_island_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ rhode_island_medicaid: No data available
+script.js:264 ⏳ Waiting 1630ms before next request...
+script.js:460 🔄 Attempting to fetch from massachusetts_medicaid...
+script.js:495  GET https://api.ma.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.ma.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.ma.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.ma.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.ma.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.ma.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.ma.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ massachusetts_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ massachusetts_medicaid: No data available
+script.js:264 ⏳ Waiting 2209ms before next request...
+script.js:460 🔄 Attempting to fetch from vermont_medicaid...
+script.js:495  GET https://api.vt.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.vt.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.vt.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.vt.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.vt.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.vt.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.vt.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ vermont_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ vermont_medicaid: No data available
+script.js:264 ⏳ Waiting 2380ms before next request...
+script.js:460 🔄 Attempting to fetch from new_hampshire_medicaid...
+script.js:495  GET https://api.nh.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.nh.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.nh.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.nh.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.nh.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.nh.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.nh.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ new_hampshire_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ new_hampshire_medicaid: No data available
+script.js:264 ⏳ Waiting 2918ms before next request...
+script.js:460 🔄 Attempting to fetch from maine_medicaid...
+script.js:495  GET https://api.me.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.me.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.me.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.me.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.me.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.me.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.me.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ maine_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ maine_medicaid: No data available
+script.js:264 ⏳ Waiting 1075ms before next request...
+script.js:460 🔄 Attempting to fetch from alaska_medicaid...
+script.js:495  GET https://api.alaska.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.alaska.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.alaska.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.alaska.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.alaska.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.alaska.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.alaska.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ alaska_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ alaska_medicaid: No data available
+script.js:264 ⏳ Waiting 2852ms before next request...
+script.js:460 🔄 Attempting to fetch from hawaii_medicaid...
+script.js:495  GET https://api.hawaii.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.hawaii.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.hawaii.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.hawaii.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.hawaii.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.hawaii.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.hawaii.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ hawaii_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ hawaii_medicaid: No data available
+script.js:264 ⏳ Waiting 2539ms before next request...
+script.js:460 🔄 Attempting to fetch from oregon_medicaid...
+script.js:495  GET https://api.oregon.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.oregon.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.oregon.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.oregon.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.oregon.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.oregon.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.oregon.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ oregon_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ oregon_medicaid: No data available
+script.js:264 ⏳ Waiting 2380ms before next request...
+script.js:460 🔄 Attempting to fetch from washington_medicaid...
+script.js:495  GET https://api.wa.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+index.html:1 Access to fetch at 'https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.wa.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.wa.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 2 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.wa.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.wa.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.wa.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.wa.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.wa.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ washington_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ washington_medicaid: No data available
+script.js:264 ⏳ Waiting 2628ms before next request...
+script.js:460 🔄 Attempting to fetch from idaho_medicaid...
+script.js:495  GET https://api.idaho.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.idaho.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.idaho.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.idaho.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.idaho.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.idaho.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.idaho.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ idaho_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ idaho_medicaid: No data available
+script.js:264 ⏳ Waiting 2017ms before next request...
+script.js:460 🔄 Attempting to fetch from montana_medicaid...
+index.html:1 Access to fetch at 'https://api.mt.gov/medicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:495  GET https://api.mt.gov/medicaid-plans net::ERR_FAILED 404 (Not Found)
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:485 ⚠️ montana_medicaid failed: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+fetchDataFromSource @ script.js:485
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ montana_medicaid: No data available
+script.js:264 ⏳ Waiting 2928ms before next request...
+script.js:527 Fetch finished loading: GET "https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.mt.gov%2Fmedicaid-plans".
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:460 🔄 Attempting to fetch from wyoming_medicaid...
+script.js:495  GET https://api.wy.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.wy.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.wy.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.wy.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.wy.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.wy.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.wy.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ wyoming_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ wyoming_medicaid: No data available
+script.js:264 ⏳ Waiting 2929ms before next request...
+script.js:460 🔄 Attempting to fetch from south_dakota_medicaid...
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.sd.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.sd.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.sd.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.sd.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.sd.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.sd.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ south_dakota_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ south_dakota_medicaid: No data available
+script.js:264 ⏳ Waiting 2679ms before next request...
+script.js:460 🔄 Attempting to fetch from north_dakota_medicaid...
+script.js:495  GET https://api.nd.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.nd.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.nd.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.nd.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.nd.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.nd.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.nd.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ north_dakota_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ north_dakota_medicaid: No data available
+script.js:264 ⏳ Waiting 1638ms before next request...
+script.js:460 🔄 Attempting to fetch from nebraska_medicaid...
+script.js:495  GET https://api.ne.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.ne.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.ne.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.ne.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.ne.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.ne.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.ne.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ nebraska_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ nebraska_medicaid: No data available
+script.js:264 ⏳ Waiting 2394ms before next request...
+script.js:460 🔄 Attempting to fetch from iowa_medicaid...
+script.js:495  GET https://api.iowa.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.iowa.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.iowa.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.iowa.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.iowa.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.iowa.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.iowa.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ iowa_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ iowa_medicaid: No data available
+script.js:264 ⏳ Waiting 1533ms before next request...
+script.js:460 🔄 Attempting to fetch from indiana_medicaid...
+script.js:495  GET https://api.in.gov/medicaid-plans net::ERR_NAME_NOT_RESOLVED
+tryDirectFetch @ script.js:495
+fetchDataFromSource @ script.js:463
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 2/5: https://api.allorigins.win/raw?url=
+script.js:527  GET https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.in.gov%2Fmedicaid-plans 400 (Bad Request)
+tryCorsProxy @ script.js:527
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 3/5: https://corsproxy.io/?
+script.js:527  GET https://corsproxy.io/?https%3A%2F%2Fapi.in.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 4/5: https://thingproxy.freeboard.io/fetch/
+script.js:527  GET https://thingproxy.freeboard.io/fetch/https%3A%2F%2Fapi.in.gov%2Fmedicaid-plans net::ERR_CERT_DATE_INVALID
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 4 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 5/5: https://cors.bridged.cc/
+index.html:1 Access to fetch at 'https://cors.bridged.cc/https%3A%2F%2Fapi.in.gov%2Fmedicaid-plans' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+script.js:527  GET https://cors.bridged.cc/https%3A%2F%2Fapi.in.gov%2Fmedicaid-plans net::ERR_FAILED 500 (Internal Server Error)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:543 ⚠️ CORS proxy 5 failed: Failed to fetch
+tryCorsProxy @ script.js:543
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:522 🔄 Trying CORS proxy 1/5: https://cors-anywhere.herokuapp.com/
+script.js:527  GET https://cors-anywhere.herokuapp.com/https%3A%2F%2Fapi.in.gov%2Fmedicaid-plans 403 (Forbidden)
+tryCorsProxy @ script.js:527
+await in tryCorsProxy
+fetchDataFromSource @ script.js:467
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:472 ⚠️ indiana_medicaid: All fetch methods failed
+fetchDataFromSource @ script.js:472
+await in fetchDataFromSource
+loadRealData @ script.js:247
+script.js:255 ❌ indiana_medicaid: No data available
+script.js:269 📊 Successfully fetched from 2/69 sources
+script.js:273 ✅ Successfully imported 150 plans from 2 data sources
+script.js:1716 🔄 Processing 150 plans from all sources...
+script.js:1795 ✅ Successfully processed 150 unique plans
+script.js:177 💾 Cached 150 plans for 24 hours
+script.js:1185 Uncaught (in promise) TypeError: (plan.name || "").toLowerCase is not a function
+determinePlanSize @ script.js:1185
+(anonymous) @ script.js:2223
+renderPlansTable @ script.js:2221
+init @ script.js:133

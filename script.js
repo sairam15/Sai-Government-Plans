@@ -290,57 +290,150 @@ class MedicareMedicaidApp {
             this.plans = this.generateComprehensiveFallbackData();
             this.updateDataSourceText('Using comprehensive fallback data (API error)', 'api-error');
             await this.saveToCache();
+        } finally {
+            // Always ensure loading state is hidden
+            this.hideLoadingState();
         }
     }
 
     generateComprehensiveFallbackData() {
         console.log('🔄 Generating comprehensive fallback data...');
         
-        const plans = [];
-        const states = ['CA', 'TX', 'FL', 'NY', 'PA', 'OH', 'MI', 'IL', 'GA', 'NC', 'VA', 'WA', 'OR', 'CO', 'AZ', 'NV', 'UT', 'NM', 'MT', 'WY', 'ID', 'AK', 'HI', 'TN', 'MO', 'WI', 'MN', 'OK', 'AR', 'LA', 'MS', 'AL', 'SC', 'KY', 'WV', 'MD', 'DE', 'NJ', 'CT', 'RI', 'MA', 'VT', 'NH', 'ME', 'SD', 'ND', 'NE', 'IA', 'IN'];
-        const organizations = [
-            'Kaiser Permanente', 'Blue Cross Blue Shield', 'Aetna', 'Humana', 'UnitedHealthcare',
-            'Cigna', 'Anthem', 'Molina Healthcare', 'Centene Corporation', 'WellCare Health Plans',
-            'CVS Health', 'Optum', 'CareSource', 'Health Net', 'Bright Health',
-            'LA Care Health Plan', 'Kern Health Systems', 'Inland Empire Health Plan', 'CalOptima',
-            'Community Health Plan', 'Regional Health Plan', 'State Medical Group', 'Wellness Partners',
-            'Medical Associates', 'Health Partners', 'Care Network', 'Community Health'
-        ];
-        
-        let planId = 1;
-        
-        // Generate Medicare Advantage plans
-        states.forEach(state => {
-            const numPlans = Math.floor(Math.random() * 8) + 3; // 3-10 plans per state
+        try {
+            const plans = [];
+            const states = ['CA', 'TX', 'FL', 'NY', 'PA', 'OH', 'MI', 'IL', 'GA', 'NC', 'VA', 'WA', 'OR', 'CO', 'AZ', 'NV', 'UT', 'NM', 'MT', 'WY', 'ID', 'AK', 'HI', 'TN', 'MO', 'WI', 'MN', 'OK', 'AR', 'LA', 'MS', 'AL', 'SC', 'KY', 'WV', 'MD', 'DE', 'NJ', 'CT', 'RI', 'MA', 'VT', 'NH', 'ME', 'SD', 'ND', 'NE', 'IA', 'IN'];
+            const organizations = [
+                'Kaiser Permanente', 'Blue Cross Blue Shield', 'Aetna', 'Humana', 'UnitedHealthcare',
+                'Cigna', 'Anthem', 'Molina Healthcare', 'Centene Corporation', 'WellCare Health Plans',
+                'CVS Health', 'Optum', 'CareSource', 'Health Net', 'Bright Health',
+                'LA Care Health Plan', 'Kern Health Systems', 'Inland Empire Health Plan', 'CalOptima',
+                'Community Health Plan', 'Regional Health Plan', 'State Medical Group', 'Wellness Partners',
+                'Medical Associates', 'Health Partners', 'Care Network', 'Community Health'
+            ];
             
-            for (let i = 0; i < numPlans; i++) {
-                const organization = organizations[Math.floor(Math.random() * organizations.length)];
+            let planId = 1;
+            
+            // Generate Medicare Advantage plans
+            states.forEach(state => {
+                const numPlans = Math.floor(Math.random() * 8) + 3; // 3-10 plans per state
+                
+                for (let i = 0; i < numPlans; i++) {
+                    const organization = organizations[Math.floor(Math.random() * organizations.length)];
+                    const starRating = this.generateRandomRating();
+                    const members = this.generateRealisticMemberCount('medicare', state);
+                    const ncqaRating = this.generateNCQARating(starRating, organization);
+                    const cmsCriteria = this.generateComprehensiveCMSCriteria(starRating);
+                    const cmsFailures = this.generateDetailedCMSFailures(starRating, cmsCriteria);
+                    const region = this.getRegionForState(state);
+                    
+                    plans.push({
+                        id: `medicare_${planId++}`,
+                        name: `${organization} Medicare Advantage Plan ${i + 1}`,
+                        type: 'medicare',
+                        state: state,
+                        region: region,
+                        starRating: starRating,
+                        ncqaRating: ncqaRating,
+                        members: members,
+                        cmsCriteria: cmsCriteria,
+                        cmsFailures: cmsFailures,
+                        contractId: `H${Math.floor(Math.random() * 9999) + 1000}`,
+                        organization: organization,
+                        planType: 'Medicare Advantage',
+                        county: `${state} County`,
+                        zipCode: `${Math.floor(Math.random() * 90000) + 10000}`,
+                        phone: `1-800-${Math.floor(Math.random() * 900) + 100}-${Math.floor(Math.random() * 9000) + 1000}`,
+                        website: `https://www.${organization.toLowerCase().replace(/\s+/g, '')}.com`,
+                        source: 'Fallback Generation',
+                        lastUpdated: new Date().toISOString().split('T')[0],
+                        cmsFailureCount: cmsFailures.length,
+                        cmsCriticalFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Critical').length,
+                        cmsHighFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'High').length,
+                        cmsMediumFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Medium').length,
+                        cmsLowFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Low').length
+                    });
+                }
+            });
+            
+            // Generate Medicaid plans
+            states.forEach(state => {
+                const numPlans = Math.floor(Math.random() * 6) + 2; // 2-7 plans per state
+                
+                for (let i = 0; i < numPlans; i++) {
+                    const organization = organizations[Math.floor(Math.random() * organizations.length)];
+                    const starRating = this.generateRandomRating();
+                    const members = this.generateRealisticMemberCount('medicaid', state);
+                    const ncqaRating = this.generateNCQARating(starRating, organization);
+                    const cmsCriteria = this.generateComprehensiveCMSCriteria(starRating);
+                    const cmsFailures = this.generateDetailedCMSFailures(starRating, cmsCriteria);
+                    const region = this.getRegionForState(state);
+                    
+                    plans.push({
+                        id: `medicaid_${planId++}`,
+                        name: `${organization} Medicaid Managed Care Plan ${i + 1}`,
+                        type: 'medicaid',
+                        state: state,
+                        region: region,
+                        starRating: starRating,
+                        ncqaRating: ncqaRating,
+                        members: members,
+                        cmsCriteria: cmsCriteria,
+                        cmsFailures: cmsFailures,
+                        contractId: `M${Math.floor(Math.random() * 9999) + 1000}`,
+                        organization: organization,
+                        planType: 'Medicaid Managed Care',
+                        county: `${state} County`,
+                        zipCode: `${Math.floor(Math.random() * 90000) + 10000}`,
+                        phone: `1-800-${Math.floor(Math.random() * 900) + 100}-${Math.floor(Math.random() * 9000) + 1000}`,
+                        website: `https://www.${organization.toLowerCase().replace(/\s+/g, '')}.com`,
+                        source: 'Fallback Generation',
+                        lastUpdated: new Date().toISOString().split('T')[0],
+                        cmsFailureCount: cmsFailures.length,
+                        cmsCriticalFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Critical').length,
+                        cmsHighFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'High').length,
+                        cmsMediumFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Medium').length,
+                        cmsLowFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Low').length
+                    });
+                }
+            });
+            
+            // Add special California plans (LA Care, Kern Health, etc.)
+            const californiaPlans = [
+                { name: 'LA Care Health Plan', type: 'medicaid', members: 2500000 },
+                { name: 'Kern Health Systems', type: 'medicaid', members: 180000 },
+                { name: 'Inland Empire Health Plan', type: 'medicaid', members: 1400000 },
+                { name: 'CalOptima', type: 'medicaid', members: 900000 },
+                { name: 'Health Net of California', type: 'medicare', members: 800000 },
+                { name: 'Anthem Blue Cross California', type: 'medicare', members: 1200000 },
+                { name: 'Kaiser Permanente California', type: 'medicare', members: 3500000 },
+                { name: 'Blue Shield of California', type: 'medicare', members: 950000 }
+            ];
+            
+            californiaPlans.forEach((plan, index) => {
                 const starRating = this.generateRandomRating();
-                const members = this.generateRealisticMemberCount('medicare', state);
-                const ncqaRating = this.generateNCQARating(starRating, organization);
+                const ncqaRating = this.generateNCQARating(starRating, plan.name);
                 const cmsCriteria = this.generateComprehensiveCMSCriteria(starRating);
                 const cmsFailures = this.generateDetailedCMSFailures(starRating, cmsCriteria);
-                const region = this.getRegionForState(state);
                 
                 plans.push({
-                    id: `medicare_${planId++}`,
-                    name: `${organization} Medicare Advantage Plan ${i + 1}`,
-                    type: 'medicare',
-                    state: state,
-                    region: region,
+                    id: `california_${planId++}`,
+                    name: plan.name,
+                    type: plan.type,
+                    state: 'CA',
+                    region: 'West',
                     starRating: starRating,
                     ncqaRating: ncqaRating,
-                    members: members,
+                    members: plan.members,
                     cmsCriteria: cmsCriteria,
                     cmsFailures: cmsFailures,
-                    contractId: `H${Math.floor(Math.random() * 9999) + 1000}`,
-                    organization: organization,
-                    planType: 'Medicare Advantage',
-                    county: `${state} County`,
-                    zipCode: `${Math.floor(Math.random() * 90000) + 10000}`,
-                    phone: `1-800-${Math.floor(Math.random() * 900) + 100}-${Math.floor(Math.random() * 9000) + 1000}`,
-                    website: `https://www.${organization.toLowerCase().replace(/\s+/g, '')}.com`,
-                    source: 'Fallback Generation',
+                    contractId: `CA${Math.floor(Math.random() * 9999) + 1000}`,
+                    organization: plan.name,
+                    planType: plan.type === 'medicare' ? 'Medicare Advantage' : 'Medicaid Managed Care',
+                    county: 'Los Angeles County',
+                    zipCode: '90210',
+                    phone: '1-800-522-4700',
+                    website: `https://www.${plan.name.toLowerCase().replace(/\s+/g, '')}.com`,
+                    source: 'Fallback Generation - California',
                     lastUpdated: new Date().toISOString().split('T')[0],
                     cmsFailureCount: cmsFailures.length,
                     cmsCriticalFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Critical').length,
@@ -348,99 +441,41 @@ class MedicareMedicaidApp {
                     cmsMediumFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Medium').length,
                     cmsLowFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Low').length
                 });
-            }
-        });
-        
-        // Generate Medicaid plans
-        states.forEach(state => {
-            const numPlans = Math.floor(Math.random() * 6) + 2; // 2-7 plans per state
+            });
             
-            for (let i = 0; i < numPlans; i++) {
-                const organization = organizations[Math.floor(Math.random() * organizations.length)];
-                const starRating = this.generateRandomRating();
-                const members = this.generateRealisticMemberCount('medicaid', state);
-                const ncqaRating = this.generateNCQARating(starRating, organization);
-                const cmsCriteria = this.generateComprehensiveCMSCriteria(starRating);
-                const cmsFailures = this.generateDetailedCMSFailures(starRating, cmsCriteria);
-                const region = this.getRegionForState(state);
-                
-                plans.push({
-                    id: `medicaid_${planId++}`,
-                    name: `${organization} Medicaid Managed Care Plan ${i + 1}`,
-                    type: 'medicaid',
-                    state: state,
-                    region: region,
-                    starRating: starRating,
-                    ncqaRating: ncqaRating,
-                    members: members,
-                    cmsCriteria: cmsCriteria,
-                    cmsFailures: cmsFailures,
-                    contractId: `M${Math.floor(Math.random() * 9999) + 1000}`,
-                    organization: organization,
-                    planType: 'Medicaid Managed Care',
-                    county: `${state} County`,
-                    zipCode: `${Math.floor(Math.random() * 90000) + 10000}`,
-                    phone: `1-800-${Math.floor(Math.random() * 900) + 100}-${Math.floor(Math.random() * 9000) + 1000}`,
-                    website: `https://www.${organization.toLowerCase().replace(/\s+/g, '')}.com`,
-                    source: 'Fallback Generation',
-                    lastUpdated: new Date().toISOString().split('T')[0],
-                    cmsFailureCount: cmsFailures.length,
-                    cmsCriticalFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Critical').length,
-                    cmsHighFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'High').length,
-                    cmsMediumFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Medium').length,
-                    cmsLowFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Low').length
-                });
-            }
-        });
-        
-        // Add special California plans (LA Care, Kern Health, etc.)
-        const californiaPlans = [
-            { name: 'LA Care Health Plan', type: 'medicaid', members: 2500000 },
-            { name: 'Kern Health Systems', type: 'medicaid', members: 180000 },
-            { name: 'Inland Empire Health Plan', type: 'medicaid', members: 1400000 },
-            { name: 'CalOptima', type: 'medicaid', members: 900000 },
-            { name: 'Health Net of California', type: 'medicare', members: 800000 },
-            { name: 'Anthem Blue Cross California', type: 'medicare', members: 1200000 },
-            { name: 'Kaiser Permanente California', type: 'medicare', members: 3500000 },
-            { name: 'Blue Shield of California', type: 'medicare', members: 950000 }
-        ];
-        
-        californiaPlans.forEach((plan, index) => {
-            const starRating = this.generateRandomRating();
-            const ncqaRating = this.generateNCQARating(starRating, plan.name);
-            const cmsCriteria = this.generateComprehensiveCMSCriteria(starRating);
-            const cmsFailures = this.generateDetailedCMSFailures(starRating, cmsCriteria);
+            console.log(`✅ Generated ${plans.length} comprehensive fallback plans`);
+            return plans;
             
-            plans.push({
-                id: `california_${planId++}`,
-                name: plan.name,
-                type: plan.type,
+        } catch (error) {
+            console.error('❌ Error generating fallback data:', error);
+            // Return minimal fallback data if generation fails
+            return [{
+                id: 'fallback_1',
+                name: 'Fallback Health Plan',
+                type: 'medicare',
                 state: 'CA',
                 region: 'West',
-                starRating: starRating,
-                ncqaRating: ncqaRating,
-                members: plan.members,
-                cmsCriteria: cmsCriteria,
-                cmsFailures: cmsFailures,
-                contractId: `CA${Math.floor(Math.random() * 9999) + 1000}`,
-                organization: plan.name,
-                planType: plan.type === 'medicare' ? 'Medicare Advantage' : 'Medicaid Managed Care',
+                starRating: 3.5,
+                ncqaRating: this.generateNCQARating(3.5, 'Fallback Health Plan'),
+                members: 100000,
+                cmsCriteria: this.generateComprehensiveCMSCriteria(3.5),
+                cmsFailures: this.generateDetailedCMSFailures(3.5, this.generateComprehensiveCMSCriteria(3.5)),
+                contractId: 'FALLBACK001',
+                organization: 'Fallback Health Plan',
+                planType: 'Medicare Advantage',
                 county: 'Los Angeles County',
                 zipCode: '90210',
-                phone: '1-800-522-4700',
-                website: `https://www.${plan.name.toLowerCase().replace(/\s+/g, '')}.com`,
-                source: 'Fallback Generation - California',
+                phone: '1-800-555-0123',
+                website: 'https://www.fallbackhealthplan.com',
+                source: 'Emergency Fallback',
                 lastUpdated: new Date().toISOString().split('T')[0],
-                cmsFailureCount: cmsFailures.length,
-                cmsCriticalFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Critical').length,
-                cmsHighFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'High').length,
-                cmsMediumFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Medium').length,
-                cmsLowFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Low').length
-            });
-        });
-        
-        console.log(`✅ Generated ${plans.length} comprehensive fallback plans`);
-        return plans;
+                cmsFailureCount: 0,
+                cmsCriticalFailures: 0,
+                cmsHighFailures: 0,
+                cmsMediumFailures: 0,
+                cmsLowFailures: 0
+            }];
+        }
     }
 
     // Utility function for delays
@@ -1181,11 +1216,12 @@ class MedicareMedicaidApp {
             'cigna', 'highmark', 'health net', 'wellcare'
         ];
         
-        const organization = (plan.organization || '').toLowerCase();
-        const name = (plan.name || '').toLowerCase();
+        // Safely handle null/undefined values
+        const organization = String(plan.organization || '').toLowerCase();
+        const name = String(plan.name || '').toLowerCase();
         
         // Check if it's a California-specific plan
-        if (plan.state === 'California' && (
+        if (plan.state === 'CA' && (
             name.includes('la care') || 
             name.includes('kern health') || 
             name.includes('caloptima') || 
@@ -1217,9 +1253,25 @@ class MedicareMedicaidApp {
         return Math.round(baseRating * 10) / 10; // Round to 1 decimal place
     }
 
-    generateRealisticMemberCount() {
-        // Generate realistic member counts based on plan types
-        const baseCount = Math.random() * 200000 + 10000; // 10k to 210k
+    generateRealisticMemberCount(planType = null, state = null) {
+        // Generate realistic member counts based on plan types and states
+        let baseCount;
+        
+        if (planType === 'medicare') {
+            baseCount = Math.random() * 300000 + 50000; // 50k to 350k for Medicare
+        } else if (planType === 'medicaid') {
+            baseCount = Math.random() * 500000 + 100000; // 100k to 600k for Medicaid
+        } else {
+            baseCount = Math.random() * 200000 + 10000; // 10k to 210k default
+        }
+        
+        // Adjust for state size (California, Texas, Florida have larger populations)
+        if (state === 'CA' || state === 'TX' || state === 'FL' || state === 'NY') {
+            baseCount *= 1.5;
+        } else if (state === 'WY' || state === 'AK' || state === 'VT' || state === 'ND') {
+            baseCount *= 0.3;
+        }
+        
         return Math.round(baseCount / 1000) * 1000; // Round to nearest thousand
     }
 
