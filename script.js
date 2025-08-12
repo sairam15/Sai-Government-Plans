@@ -13,10 +13,6 @@ class MedicareMedicaidApp {
         
         // Updated API endpoints with working sources and CORS proxy
         this.apiEndpoints = {
-            // Working public APIs
-            'jsonplaceholder': 'https://jsonplaceholder.typicode.com/posts',
-            'randomuser': 'https://randomuser.me/api/?results=50',
-            
             // Government data sources (with CORS proxy)
             'cms_medicare_plans': 'https://data.cms.gov/provider-data/api/1/datastore/query/medicare-advantage-plans/0',
             'healthcare_gov_plans': 'https://www.healthcare.gov/api/plans.json',
@@ -106,40 +102,35 @@ class MedicareMedicaidApp {
     }
 
     async init() {
-        this.showLoadingState();
+        // Clear any existing cache to remove old junk data
+        this.clearCache();
         
-        // Check cache first
-        if (await this.loadFromCache()) {
-            console.log('✅ Loaded data from cache');
-        this.filteredPlans = [...this.plans];
-        this.setupEventListeners();
-        this.renderPlansTable();
-        this.updateStats();
-        this.updateMemberBreakdown();
-        this.updateStarAnalysis();
-        this.updateCMSCriteria();
-        this.updateSearchResultsInfo();
-            this.showSearchResultsInfo();
+        this.showLoadingState();
+        this.updateLoadingText('Initializing application...');
+        
+        // Check if we have cached data
+        const cachedData = this.loadFromCache();
+        if (cachedData && cachedData.length > 0) {
+            this.updateLoadingText('Loading cached data...');
+            this.plans = cachedData;
             this.hideLoadingState();
-            this.highlightCaliforniaPlans();
+            this.renderPlansTable();
+            this.updateDataSourceText('Using cached data', 'cached');
+            this.showNotification('Loaded data from cache', 'info');
             
-            // Check if cache needs refresh in background
+            // Check if cache needs refresh
             this.checkAndRefreshCache();
         } else {
-            console.log('🔄 Cache miss or expired, loading fresh data');
+            this.updateLoadingText('Loading fresh data...');
             await this.loadRealData();
-            this.filteredPlans = [...this.plans];
-            this.setupEventListeners();
-            this.renderPlansTable();
-            this.updateStats();
-            this.updateMemberBreakdown();
-            this.updateStarAnalysis();
-            this.updateCMSCriteria();
-            this.updateSearchResultsInfo();
-            this.showSearchResultsInfo();
-            this.hideLoadingState();
-            this.highlightCaliforniaPlans();
         }
+        
+        this.setupEventListeners();
+        this.setupSearch();
+        this.setupTableSorting();
+        this.setupPlanTooltips();
+        this.setupKeyboardShortcuts();
+        this.highlightCaliforniaPlans();
     }
 
     async loadFromCache() {
@@ -485,8 +476,8 @@ class MedicareMedicaidApp {
             console.error('Error generating fallback data:', error);
             // Return minimal fallback data if generation fails
             return [
-                {
-                    id: 1,
+            {
+                id: 1,
                     name: 'Aetna Medicare Advantage Choice',
                     type: 'medicare',
                     planType: 'Medicare Advantage',
@@ -1746,9 +1737,9 @@ class MedicareMedicaidApp {
         try {
             localStorage.removeItem(this.cacheKey);
             localStorage.removeItem(this.cacheExpiryKey);
-            this.showNotification('Cache cleared successfully. Data will be refreshed on next load.', 'success');
+            console.log('🗑️ Cache cleared to remove old junk data');
         } catch (error) {
-            this.showNotification('Error clearing cache.', 'error');
+            console.error('Error clearing cache:', error);
         }
     }
 
