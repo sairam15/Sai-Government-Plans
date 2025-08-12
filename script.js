@@ -297,184 +297,212 @@ class MedicareMedicaidApp {
     }
 
     generateComprehensiveFallbackData() {
-        console.log('🔄 Generating comprehensive fallback data...');
-        
         try {
             const plans = [];
-            const states = ['CA', 'TX', 'FL', 'NY', 'PA', 'OH', 'MI', 'IL', 'GA', 'NC', 'VA', 'WA', 'OR', 'CO', 'AZ', 'NV', 'UT', 'NM', 'MT', 'WY', 'ID', 'AK', 'HI', 'TN', 'MO', 'WI', 'MN', 'OK', 'AR', 'LA', 'MS', 'AL', 'SC', 'KY', 'WV', 'MD', 'DE', 'NJ', 'CT', 'RI', 'MA', 'VT', 'NH', 'ME', 'SD', 'ND', 'NE', 'IA', 'IN'];
+            const states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
+            const regions = ['Northeast', 'Southeast', 'Midwest', 'Southwest', 'West'];
+            
+            // Medicare Advantage Plan Names (Realistic)
+            const medicarePlanNames = [
+                'Aetna Medicare Advantage Choice',
+                'Anthem Blue Cross Medicare Advantage',
+                'Blue Cross Blue Shield Medicare Advantage',
+                'Cigna Medicare Advantage',
+                'Humana Medicare Advantage',
+                'Kaiser Permanente Medicare Advantage',
+                'UnitedHealthcare Medicare Advantage',
+                'AARP Medicare Advantage',
+                'WellCare Medicare Advantage',
+                'Molina Medicare Advantage',
+                'Centene Medicare Advantage',
+                'Bright Health Medicare Advantage',
+                'Devoted Health Medicare Advantage',
+                'Clover Health Medicare Advantage',
+                'Oscar Health Medicare Advantage',
+                'Alignment Healthcare Medicare Advantage',
+                'GoHealth Medicare Advantage',
+                'eHealth Medicare Advantage',
+                'Health Net Medicare Advantage',
+                'CareMore Medicare Advantage',
+                'SCAN Health Plan Medicare Advantage',
+                'L.A. Care Medicare Advantage',
+                'Kern Health Systems Medicare Advantage',
+                'Inland Empire Medicare Advantage',
+                'CalOptima Medicare Advantage',
+                'Partnership HealthPlan Medicare Advantage',
+                'Central Health Plan Medicare Advantage',
+                'Health Plan of San Mateo Medicare Advantage',
+                'Santa Clara Family Health Plan Medicare Advantage',
+                'Alameda Alliance Medicare Advantage'
+            ];
+
+            // Medicaid Plan Names (Realistic)
+            const medicaidPlanNames = [
+                'Aetna Better Health Medicaid',
+                'Anthem Blue Cross Medicaid',
+                'Blue Cross Blue Shield Medicaid',
+                'Cigna Medicaid',
+                'Humana Medicaid',
+                'Kaiser Permanente Medicaid',
+                'UnitedHealthcare Medicaid',
+                'WellCare Medicaid',
+                'Molina Medicaid',
+                'Centene Medicaid',
+                'Amerigroup Medicaid',
+                'CareSource Medicaid',
+                'Buckeye Health Plan Medicaid',
+                'Meridian Health Plan Medicaid',
+                'Absolute Total Care Medicaid',
+                'Carolina Complete Health Medicaid',
+                'Healthy Blue Medicaid',
+                'Louisiana Healthcare Connections Medicaid',
+                'Magnolia Health Plan Medicaid',
+                'MississippiCAN Medicaid',
+                'Missouri Care Medicaid',
+                'Nevada Medicaid',
+                'New Mexico Medicaid',
+                'North Carolina Medicaid',
+                'Ohio Medicaid',
+                'Oklahoma Complete Health Medicaid',
+                'Oregon Medicaid',
+                'Pennsylvania Medicaid',
+                'Rhode Island Medicaid',
+                'South Carolina Medicaid',
+                'Tennessee Medicaid',
+                'Texas Medicaid',
+                'Utah Medicaid',
+                'Vermont Medicaid',
+                'Virginia Medicaid',
+                'Washington Medicaid',
+                'West Virginia Medicaid',
+                'Wisconsin Medicaid',
+                'Wyoming Medicaid',
+                'L.A. Care Medicaid',
+                'Kern Health Systems Medicaid',
+                'Inland Empire Medicaid',
+                'CalOptima Medicaid',
+                'Partnership HealthPlan Medicaid',
+                'Central Health Plan Medicaid',
+                'Health Plan of San Mateo Medicaid',
+                'Santa Clara Family Health Plan Medicaid',
+                'Alameda Alliance Medicaid'
+            ];
+
+            // Organizations
             const organizations = [
-                'Kaiser Permanente', 'Blue Cross Blue Shield', 'Aetna', 'Humana', 'UnitedHealthcare',
-                'Cigna', 'Anthem', 'Molina Healthcare', 'Centene Corporation', 'WellCare Health Plans',
-                'CVS Health', 'Optum', 'CareSource', 'Health Net', 'Bright Health',
-                'LA Care Health Plan', 'Kern Health Systems', 'Inland Empire Health Plan', 'CalOptima',
-                'Community Health Plan', 'Regional Health Plan', 'State Medical Group', 'Wellness Partners',
-                'Medical Associates', 'Health Partners', 'Care Network', 'Community Health'
+                'Aetna Inc.',
+                'Anthem Inc.',
+                'Blue Cross Blue Shield Association',
+                'Cigna Corporation',
+                'Humana Inc.',
+                'Kaiser Permanente',
+                'UnitedHealth Group',
+                'WellCare Health Plans',
+                'Molina Healthcare',
+                'Centene Corporation',
+                'Amerigroup Corporation',
+                'CareSource',
+                'Buckeye Health Plan',
+                'Meridian Health Plan',
+                'Absolute Total Care',
+                'Carolina Complete Health',
+                'Healthy Blue',
+                'Louisiana Healthcare Connections',
+                'Magnolia Health Plan',
+                'MississippiCAN',
+                'Missouri Care',
+                'L.A. Care Health Plan',
+                'Kern Health Systems',
+                'Inland Empire Health Plan',
+                'CalOptima',
+                'Partnership HealthPlan',
+                'Central Health Plan',
+                'Health Plan of San Mateo',
+                'Santa Clara Family Health Plan',
+                'Alameda Alliance for Health'
             ];
-            
+
             let planId = 1;
-            
-            // Generate Medicare Advantage plans
-            states.forEach(state => {
-                const numPlans = Math.floor(Math.random() * 8) + 3; // 3-10 plans per state
-                
-                for (let i = 0; i < numPlans; i++) {
-                    const organization = organizations[Math.floor(Math.random() * organizations.length)];
-                    const starRating = this.generateRandomRating();
-                    const members = this.generateRealisticMemberCount('medicare', state);
-                    const ncqaRating = this.generateNCQARating(starRating, organization);
-                    const cmsCriteria = this.generateComprehensiveCMSCriteria(starRating);
-                    const cmsFailures = this.generateDetailedCMSFailures(starRating, cmsCriteria);
-                    const region = this.getRegionForState(state);
-                    
-                    plans.push({
-                        id: `medicare_${planId++}`,
-                        name: `${organization} Medicare Advantage Plan ${i + 1}`,
-                        type: 'medicare',
-                        state: state,
-                        region: region,
-                        starRating: starRating,
-                        ncqaRating: ncqaRating,
-                        members: members,
-                        cmsCriteria: cmsCriteria,
-                        cmsFailures: cmsFailures,
-                        contractId: `H${Math.floor(Math.random() * 9999) + 1000}`,
-                        organization: organization,
-                        planType: 'Medicare Advantage',
-                        county: `${state} County`,
-                        zipCode: `${Math.floor(Math.random() * 90000) + 10000}`,
-                        phone: `1-800-${Math.floor(Math.random() * 900) + 100}-${Math.floor(Math.random() * 9000) + 1000}`,
-                        website: `https://www.${organization.toLowerCase().replace(/\s+/g, '')}.com`,
-                        source: 'Fallback Generation',
-                        lastUpdated: new Date().toISOString().split('T')[0],
-                        cmsFailureCount: cmsFailures.length,
-                        cmsCriticalFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Critical').length,
-                        cmsHighFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'High').length,
-                        cmsMediumFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Medium').length,
-                        cmsLowFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Low').length
-                    });
-                }
-            });
-            
-            // Generate Medicaid plans
-            states.forEach(state => {
-                const numPlans = Math.floor(Math.random() * 6) + 2; // 2-7 plans per state
-                
-                for (let i = 0; i < numPlans; i++) {
-                    const organization = organizations[Math.floor(Math.random() * organizations.length)];
-                    const starRating = this.generateRandomRating();
-                    const members = this.generateRealisticMemberCount('medicaid', state);
-                    const ncqaRating = this.generateNCQARating(starRating, organization);
-                    const cmsCriteria = this.generateComprehensiveCMSCriteria(starRating);
-                    const cmsFailures = this.generateDetailedCMSFailures(starRating, cmsCriteria);
-                    const region = this.getRegionForState(state);
-                    
-                    plans.push({
-                        id: `medicaid_${planId++}`,
-                        name: `${organization} Medicaid Managed Care Plan ${i + 1}`,
-                        type: 'medicaid',
-                        state: state,
-                        region: region,
-                        starRating: starRating,
-                        ncqaRating: ncqaRating,
-                        members: members,
-                        cmsCriteria: cmsCriteria,
-                        cmsFailures: cmsFailures,
-                        contractId: `M${Math.floor(Math.random() * 9999) + 1000}`,
-                        organization: organization,
-                        planType: 'Medicaid Managed Care',
-                        county: `${state} County`,
-                        zipCode: `${Math.floor(Math.random() * 90000) + 10000}`,
-                        phone: `1-800-${Math.floor(Math.random() * 900) + 100}-${Math.floor(Math.random() * 9000) + 1000}`,
-                        website: `https://www.${organization.toLowerCase().replace(/\s+/g, '')}.com`,
-                        source: 'Fallback Generation',
-                        lastUpdated: new Date().toISOString().split('T')[0],
-                        cmsFailureCount: cmsFailures.length,
-                        cmsCriticalFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Critical').length,
-                        cmsHighFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'High').length,
-                        cmsMediumFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Medium').length,
-                        cmsLowFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Low').length
-                    });
-                }
-            });
-            
-            // Add special California plans (LA Care, Kern Health, etc.)
-            const californiaPlans = [
-                { name: 'LA Care Health Plan', type: 'medicaid', members: 2500000 },
-                { name: 'Kern Health Systems', type: 'medicaid', members: 180000 },
-                { name: 'Inland Empire Health Plan', type: 'medicaid', members: 1400000 },
-                { name: 'CalOptima', type: 'medicaid', members: 900000 },
-                { name: 'Health Net of California', type: 'medicare', members: 800000 },
-                { name: 'Anthem Blue Cross California', type: 'medicare', members: 1200000 },
-                { name: 'Kaiser Permanente California', type: 'medicare', members: 3500000 },
-                { name: 'Blue Shield of California', type: 'medicare', members: 950000 }
-            ];
-            
-            californiaPlans.forEach((plan, index) => {
-                const starRating = this.generateRandomRating();
-                const ncqaRating = this.generateNCQARating(starRating, plan.name);
-                const cmsCriteria = this.generateComprehensiveCMSCriteria(starRating);
-                const cmsFailures = this.generateDetailedCMSFailures(starRating, cmsCriteria);
+
+            // Generate Medicare Advantage Plans
+            for (let i = 0; i < 150; i++) {
+                const state = states[Math.floor(Math.random() * states.length)];
+                const region = this.getRegionFromState(state);
+                const planName = medicarePlanNames[Math.floor(Math.random() * medicarePlanNames.length)];
+                const organization = organizations[Math.floor(Math.random() * organizations.length)];
+                const starRating = this.generateRealisticStarRating();
+                const members = this.generateRealisticMemberCount('medicare', state);
                 
                 plans.push({
-                    id: `california_${planId++}`,
-                    name: plan.name,
-                    type: plan.type,
+                    id: planId++,
+                    name: planName,
+                    type: 'medicare',
+                    planType: 'Medicare Advantage',
+                    state: state,
+                    region: region,
+                    organization: organization,
+                    starRating: starRating,
+                    members: members,
+                    contractId: `H${Math.floor(Math.random() * 9999) + 1000}`,
+                    cmsCriteria: this.generateComprehensiveCMSCriteria(starRating),
+                    cmsFailures: this.generateDetailedCMSFailures(starRating),
+                    ncqaRating: this.generateNCQARating(starRating, organization),
+                    source: 'Fallback Data',
+                    lastUpdated: new Date().toISOString().split('T')[0]
+                });
+            }
+
+            // Generate Medicaid Plans
+            for (let i = 0; i < 200; i++) {
+                const state = states[Math.floor(Math.random() * states.length)];
+                const region = this.getRegionFromState(state);
+                const planName = medicaidPlanNames[Math.floor(Math.random() * medicaidPlanNames.length)];
+                const organization = organizations[Math.floor(Math.random() * organizations.length)];
+                const starRating = this.generateRealisticStarRating();
+                const members = this.generateRealisticMemberCount('medicaid', state);
+                
+                plans.push({
+                    id: planId++,
+                    name: planName,
+                    type: 'medicaid',
+                    planType: 'Medicaid',
+                    state: state,
+                    region: region,
+                    organization: organization,
+                    starRating: starRating,
+                    members: members,
+                    contractId: `M${Math.floor(Math.random() * 9999) + 1000}`,
+                    cmsCriteria: this.generateComprehensiveCMSCriteria(starRating),
+                    cmsFailures: this.generateDetailedCMSFailures(starRating),
+                    ncqaRating: this.generateNCQARating(starRating, organization),
+                    source: 'Fallback Data',
+                    lastUpdated: new Date().toISOString().split('T')[0]
+                });
+            }
+
+            return plans;
+        } catch (error) {
+            console.error('Error generating fallback data:', error);
+            // Return minimal fallback data if generation fails
+            return [
+                {
+                    id: 1,
+                    name: 'Aetna Medicare Advantage Choice',
+                    type: 'medicare',
+                    planType: 'Medicare Advantage',
                     state: 'CA',
                     region: 'West',
-                    starRating: starRating,
-                    ncqaRating: ncqaRating,
-                    members: plan.members,
-                    cmsCriteria: cmsCriteria,
-                    cmsFailures: cmsFailures,
-                    contractId: `CA${Math.floor(Math.random() * 9999) + 1000}`,
-                    organization: plan.name,
-                    planType: plan.type === 'medicare' ? 'Medicare Advantage' : 'Medicaid Managed Care',
-                    county: 'Los Angeles County',
-                    zipCode: '90210',
-                    phone: '1-800-522-4700',
-                    website: `https://www.${plan.name.toLowerCase().replace(/\s+/g, '')}.com`,
-                    source: 'Fallback Generation - California',
-                    lastUpdated: new Date().toISOString().split('T')[0],
-                    cmsFailureCount: cmsFailures.length,
-                    cmsCriticalFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Critical').length,
-                    cmsHighFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'High').length,
-                    cmsMediumFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Medium').length,
-                    cmsLowFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Low').length
-                });
-            });
-            
-            console.log(`✅ Generated ${plans.length} comprehensive fallback plans`);
-            return plans;
-            
-        } catch (error) {
-            console.error('❌ Error generating fallback data:', error);
-            // Return minimal fallback data if generation fails
-            return [{
-                id: 'fallback_1',
-                name: 'Fallback Health Plan',
-                type: 'medicare',
-                state: 'CA',
-                region: 'West',
-                starRating: 3.5,
-                ncqaRating: this.generateNCQARating(3.5, 'Fallback Health Plan'),
-                members: 100000,
-                cmsCriteria: this.generateComprehensiveCMSCriteria(3.5),
-                cmsFailures: this.generateDetailedCMSFailures(3.5, this.generateComprehensiveCMSCriteria(3.5)),
-                contractId: 'FALLBACK001',
-                organization: 'Fallback Health Plan',
-                planType: 'Medicare Advantage',
-                county: 'Los Angeles County',
-                zipCode: '90210',
-                phone: '1-800-555-0123',
-                website: 'https://www.fallbackhealthplan.com',
-                source: 'Emergency Fallback',
-                lastUpdated: new Date().toISOString().split('T')[0],
-                cmsFailureCount: 0,
-                cmsCriticalFailures: 0,
-                cmsHighFailures: 0,
-                cmsMediumFailures: 0,
-                cmsLowFailures: 0
-            }];
+                    organization: 'Aetna Inc.',
+                    starRating: 4.2,
+                    members: 150000,
+                    contractId: 'H1234',
+                    cmsCriteria: this.generateComprehensiveCMSCriteria(4.2),
+                    cmsFailures: this.generateDetailedCMSFailures(4.2),
+                    ncqaRating: this.generateNCQARating(4.2, 'Aetna Inc.'),
+                    source: 'Fallback Data',
+                    lastUpdated: new Date().toISOString().split('T')[0]
+                }
+            ];
         }
     }
 
@@ -2652,172 +2680,137 @@ class MedicareMedicaidApp {
         const plan = this.plans.find(p => p.id === planId);
         if (!plan) return;
 
-        const modal = document.getElementById('planDetailsModal');
-        const modalContent = document.getElementById('planDetailsContent');
-        
-        // Generate detailed CMS criteria breakdown
-        const cmsCriteria = plan.cmsCriteria || this.generateComprehensiveCMSCriteria(plan.starRating);
-        const cmsFailures = plan.cmsFailures || this.generateDetailedCMSFailures(plan.starRating, cmsCriteria);
-        const ncqaDetails = this.getNCQADetails(plan.ncqaRating);
-        
-        modalContent.innerHTML = `
-            <div class="modal-header">
-                <h2>${plan.name}</h2>
-                <span class="close" onclick="document.getElementById('planDetailsModal').style.display='none'">&times;</span>
+        const modal = document.getElementById('plan-modal');
+        const content = document.getElementById('plan-detail-content');
+
+        content.innerHTML = `
+            <h2>${plan.name}</h2>
+            <div class="plan-details-grid">
+                <div class="detail-item">
+                    <strong>Plan Type:</strong> ${plan.type === 'medicare' ? 'Medicare Advantage' : 'Medicaid'}
+                </div>
+                <div class="detail-item">
+                    <strong>State:</strong> ${plan.state}
+                </div>
+                <div class="detail-item">
+                    <strong>Region:</strong> ${plan.region}
+                </div>
+                <div class="detail-item">
+                    <strong>STAR Rating:</strong> 
+                    <span class="star-rating">
+                        <div class="stars">${this.renderStars(plan.starRating)}</div>
+                        <span class="rating-number">${plan.starRating}</span>
+                    </span>
+                </div>
+                <div class="detail-item">
+                    <strong>NCQA Rating:</strong> 
+                    <span class="ncqa-rating-detail">
+                        <span class="ncqa-level">${plan.ncqaRating.level}</span>
+                        <span class="ncqa-score">(${plan.ncqaRating.score}/100)</span>
+                    </span>
+                </div>
+                <div class="detail-item">
+                    <strong>Total Members:</strong> ${this.formatNumber(plan.members)}
+                </div>
+                ${plan.contractId ? `<div class="detail-item">
+                    <strong>Contract ID:</strong> ${plan.contractId}
+                </div>` : ''}
+                ${plan.organization ? `<div class="detail-item">
+                    <strong>Organization:</strong> ${plan.organization}
+                </div>` : ''}
+                ${plan.planType ? `<div class="detail-item">
+                    <strong>Plan Type Detail:</strong> ${plan.planType}
+                </div>` : ''}
+                <div class="detail-item">
+                    <strong>CMS Failures:</strong> 
+                    <span class="${plan.cmsFailures.length > 0 ? 'has-failures' : 'no-failures'}">
+                        ${plan.cmsFailures.length} issues
+                    </span>
+                </div>
             </div>
-            <div class="modal-body">
-                <div class="plan-overview">
-                    <div class="plan-basic-info">
-                        <h3>Plan Overview</h3>
-                        <div class="info-grid">
-                            <div class="info-item">
-                                <strong>Organization:</strong> ${plan.organization || 'N/A'}
-                            </div>
-                            <div class="info-item">
-                                <strong>Type:</strong> ${plan.planType || plan.type}
-                            </div>
-                            <div class="info-item">
-                                <strong>State:</strong> ${plan.state}
-                            </div>
-                            <div class="info-item">
-                                <strong>Region:</strong> ${plan.region}
-                            </div>
-                            <div class="info-item">
-                                <strong>Contract ID:</strong> ${plan.contractId || 'N/A'}
-                            </div>
-                            <div class="info-item">
-                                <strong>Members:</strong> ${this.formatNumber(plan.members)}
-                            </div>
+            
+            <div class="rating-comparison">
+                <h3>Quality Ratings Comparison</h3>
+                <div class="ratings-grid">
+                    <div class="rating-card star-rating-card">
+                        <h4>CMS STAR Rating</h4>
+                        <div class="rating-value">
+                            <div class="stars">${this.renderStars(plan.starRating)}</div>
+                            <span class="rating-number">${plan.starRating}/5.0</span>
                         </div>
+                        <p>Federal quality rating based on member experience and clinical quality measures</p>
                     </div>
-                    
-                    <div class="rating-summary">
-                        <div class="rating-card star-rating">
-                            <h4>CMS STAR Rating</h4>
-                            <div class="rating-display">
-                                <span class="rating-number">${plan.starRating}</span>
-                                <div class="stars">${this.renderStars(plan.starRating)}</div>
-                            </div>
-                            <div class="rating-status ${this.getStarRatingStatus(plan.starRating)}">
-                                ${this.getStarRatingStatusText(plan.starRating)}
-                            </div>
+                    <div class="rating-card ncqa-rating-card">
+                        <h4>NCQA Accreditation</h4>
+                        <div class="rating-value">
+                            <span class="ncqa-level">${plan.ncqaRating.level}</span>
+                            <span class="ncqa-score">${plan.ncqaRating.score}/100</span>
                         </div>
-                        
-                        <div class="rating-card ncqa-rating">
-                            <h4>NCQA Rating</h4>
-                            <div class="rating-display">
-                                <span class="rating-indicator ${this.getNCQAIndicator(plan.ncqaRating)}">${plan.ncqaRating}</span>
-                            </div>
-                            <div class="rating-status ${this.getNCQAStatus(plan.ncqaRating)}">
-                                ${ncqaDetails.status}
-                            </div>
-                        </div>
+                        <p>${plan.ncqaRating.details.description}</p>
                     </div>
                 </div>
-
-                <div class="rating-breakdown">
-                    <div class="cms-breakdown">
-                        <h3>CMS STAR Rating Breakdown</h3>
-                        <div class="criteria-grid">
-                            ${Object.entries(cmsCriteria).map(([criterion, score]) => `
-                                <div class="criterion-item ${this.getCriterionStatus(score)}">
-                                    <div class="criterion-name">${criterion}</div>
-                                    <div class="criterion-score">
-                                        <span class="score-number">${score}</span>
-                                        <div class="score-stars">${this.renderStars(score)}</div>
-                                    </div>
-                                    <div class="criterion-impact">
-                                        ${this.getCriterionImpact(score)}
-                                    </div>
-                                </div>
-                            `).join('')}
+            </div>
+            
+            <h3>CMS Criteria Performance</h3>
+            <div class="cms-performance">
+                ${Object.entries(plan.cmsCriteria).map(([criterion, score]) => `
+                    <div class="cms-criterion">
+                        <div class="criterion-name">${criterion}</div>
+                        <div class="criterion-score">
+                            <span class="score">${score}</span>
+                            <div class="stars">${this.renderStars(score)}</div>
                         </div>
-                        
-                        ${cmsFailures.length > 0 ? `
-                            <div class="cms-failures">
-                                <h4>CMS Performance Issues</h4>
-                                <div class="failures-list">
-                                    ${cmsFailures.map(failure => `
-                                        <div class="failure-item ${failure.impact.toLowerCase()}">
-                                            <div class="failure-header">
-                                                <span class="failure-criteria">${failure.criteria}</span>
-                                                <span class="failure-impact ${failure.impact.toLowerCase()}">${failure.impact}</span>
-                                            </div>
-                                            <div class="failure-details">
-                                                <span>Target: ${failure.target} | Actual: ${failure.actual}</span>
-                                            </div>
-                                            <div class="failure-description">
-                                                ${this.getCMSFailureDescription(failure.criteria, failure.target, failure.actual)}
-                                            </div>
-                                            <div class="failure-recommendations">
-                                                <strong>Recommendations:</strong> ${this.getCMSFailureRecommendations(failure.criteria, failure.impact)}
-                                            </div>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        ` : `
-                            <div class="no-failures">
-                                <p>✅ No CMS performance issues identified</p>
-                            </div>
-                        `}
                     </div>
-
-                    <div class="ncqa-breakdown">
-                        <h3>NCQA Accreditation Details</h3>
-                        <div class="ncqa-details">
-                            <div class="ncqa-level">
-                                <strong>Accreditation Level:</strong> ${ncqaDetails.level}
+                `).join('')}
+            </div>
+            
+            ${plan.cmsFailures.length > 0 ? `
+                <h3>CMS Criteria Failures & Recommendations</h3>
+                <div class="cms-failures">
+                    ${plan.cmsFailures.map(failure => `
+                        <div class="cms-failure ${failure.impact.toLowerCase()}-impact">
+                            <div class="failure-criteria">${failure.criteria}</div>
+                            <div class="failure-description">${failure.description}</div>
+                            <div class="failure-details">
+                                <span class="target">Target: ${failure.target}</span>
+                                <span class="actual">Actual: ${failure.actual}</span>
+                                <span class="impact">Impact: ${failure.impact}</span>
                             </div>
-                            <div class="ncqa-status">
-                                <strong>Status:</strong> ${ncqaDetails.status}
-                            </div>
-                            <div class="ncqa-validity">
-                                <strong>Valid Until:</strong> ${ncqaDetails.validUntil}
-                            </div>
-                            <div class="ncqa-description">
-                                <strong>Description:</strong> ${ncqaDetails.description}
-                            </div>
-                        </div>
-                        
-                        <div class="ncqa-criteria">
-                            <h4>NCQA Evaluation Criteria</h4>
-                            <div class="ncqa-criteria-list">
-                                ${this.getNCQACriteria(plan.ncqaRating).map(criterion => `
-                                    <div class="ncqa-criterion">
-                                        <div class="criterion-name">${criterion.name}</div>
-                                        <div class="criterion-status ${criterion.status}">${criterion.status}</div>
-                                        <div class="criterion-description">${criterion.description}</div>
-                                    </div>
-                                `).join('')}
+                            <div class="failure-recommendations">
+                                <strong>Recommendations:</strong>
+                                <ul>
+                                    ${failure.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                                </ul>
                             </div>
                         </div>
+                    `).join('')}
+                </div>
+            ` : '<p class="success-message">✅ This plan meets all CMS criteria targets.</p>'}
+            
+            <div class="ncqa-details">
+                <h3>NCQA Accreditation Details</h3>
+                <div class="ncqa-info">
+                    <div class="ncqa-detail-item">
+                        <strong>Level:</strong> ${plan.ncqaRating.level}
+                    </div>
+                    <div class="ncqa-detail-item">
+                        <strong>Score:</strong> ${plan.ncqaRating.score}/100
+                    </div>
+                    <div class="ncqa-detail-item">
+                        <strong>Year:</strong> ${plan.ncqaRating.year}
+                    </div>
+                    <div class="ncqa-detail-item">
+                        <strong>Requirements:</strong> ${plan.ncqaRating.details.requirements}
+                    </div>
+                    <div class="ncqa-detail-item">
+                        <strong>Benefits:</strong> ${plan.ncqaRating.details.benefits}
                     </div>
                 </div>
-
-                <div class="plan-metadata">
-                    <h3>Plan Information</h3>
-                    <div class="metadata-grid">
-                        <div class="metadata-item">
-                            <strong>County:</strong> ${plan.county || 'N/A'}
-                        </div>
-                        <div class="metadata-item">
-                            <strong>ZIP Code:</strong> ${plan.zipCode || 'N/A'}
-                        </div>
-                        <div class="metadata-item">
-                            <strong>Phone:</strong> ${plan.phone || 'N/A'}
-                        </div>
-                        <div class="metadata-item">
-                            <strong>Website:</strong> <a href="${plan.website || '#'}" target="_blank">${plan.website || 'N/A'}</a>
-                        </div>
-                        <div class="metadata-item">
-                            <strong>Data Source:</strong> ${plan.source || 'N/A'}
-                        </div>
-                        <div class="metadata-item">
-                            <strong>Last Updated:</strong> ${plan.lastUpdated || 'N/A'}
-                        </div>
-                    </div>
-                </div>
+            </div>
+            
+            <div class="plan-metadata">
+                <p><strong>Data Source:</strong> ${plan.source}</p>
+                <p><strong>Last Updated:</strong> ${plan.lastUpdated}</p>
             </div>
         `;
 
@@ -2983,136 +2976,53 @@ class MedicareMedicaidApp {
 
     // Enhanced comparison view with more metrics
     updateComparisonView() {
-        const comparisonContainer = document.getElementById('comparison-container');
-        const selectedPlans = this.plans.filter(plan => this.selectedPlans.has(plan.id));
+        const comparisonGrid = document.getElementById('comparison-grid');
+        const exportBtn = document.getElementById('export-comparison');
         
-        if (selectedPlans.length === 0) {
-            comparisonContainer.innerHTML = '<p class="no-comparison">No plans selected for comparison. Select up to 4 plans to compare.</p>';
+        if (this.selectedPlans.length === 0) {
+            comparisonGrid.innerHTML = '<p class="placeholder-text">Select plans from the overview to compare them here</p>';
+            exportBtn.style.display = 'none';
             return;
         }
 
-        comparisonContainer.innerHTML = `
-            <div class="comparison-header">
-                <h3>Plan Comparison (${selectedPlans.length} plans)</h3>
-                <button onclick="app.clearComparison()" class="clear-comparison-btn">Clear All</button>
-            </div>
-            
-            <div class="comparison-grid">
-                ${selectedPlans.map(plan => `
-                    <div class="comparison-plan-card">
-                        <div class="plan-header">
-                            <h4>${plan.name}</h4>
-                            <button onclick="app.removeFromComparison('${plan.id}')" class="remove-plan-btn">&times;</button>
-                        </div>
-                        
-                        <div class="plan-basic-info">
-                            <div class="info-row">
-                                <strong>Type:</strong> ${plan.planType || plan.type}
-                            </div>
-                            <div class="info-row">
-                                <strong>State:</strong> ${plan.state}
-                            </div>
-                            <div class="info-row">
-                                <strong>Members:</strong> ${this.formatNumber(plan.members)}
-                            </div>
-                        </div>
-
-                        <div class="rating-comparison">
-                            <div class="star-rating-comparison">
-                                <h5>CMS STAR Rating</h5>
-                                <div class="rating-display">
-                                    <span class="rating-number">${plan.starRating}</span>
-                                    <div class="stars">${this.renderStars(plan.starRating)}</div>
-                                </div>
-                                <div class="rating-status ${this.getStarRatingStatus(plan.starRating)}">
-                                    ${this.getStarRatingStatusText(plan.starRating)}
-                                </div>
-                            </div>
-                            
-                            <div class="ncqa-rating-comparison">
-                                <h5>NCQA Rating</h5>
-                                <div class="rating-display">
-                                    <span class="rating-indicator ${this.getNCQAIndicator(plan.ncqaRating)}">${plan.ncqaRating}</span>
-                                </div>
-                                <div class="rating-status ${this.getNCQAStatus(plan.ncqaRating)}">
-                                    ${this.getNCQADetails(plan.ncqaRating).status}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cms-criteria-comparison">
-                            <h5>CMS Criteria Performance</h5>
-                            <div class="criteria-list">
-                                ${Object.entries(plan.cmsCriteria || this.generateComprehensiveCMSCriteria(plan.starRating)).map(([criterion, score]) => `
-                                    <div class="criterion-row ${this.getCriterionStatus(score)}">
-                                        <span class="criterion-name">${criterion}</span>
-                                        <span class="criterion-score">${score}</span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-
-                        <div class="cms-failures-summary">
-                            <h5>CMS Issues</h5>
-                            ${(plan.cmsFailures || []).length > 0 ? `
-                                <div class="failures-summary">
-                                    <span class="failure-count">${plan.cmsFailures.length} issues</span>
-                                    <div class="failure-breakdown">
-                                        ${this.getCMSFailureBreakdown(plan.cmsFailures)}
-                                    </div>
-                                </div>
-                            ` : '<span class="no-issues">✅ No issues</span>'}
-                        </div>
-
-                        <div class="ncqa-criteria-summary">
-                            <h5>NCQA Criteria</h5>
-                            <div class="ncqa-criteria-list">
-                                ${this.getNCQACriteria(plan.ncqaRating).map(criterion => `
-                                    <div class="ncqa-criterion-row ${criterion.status.toLowerCase().replace(' ', '-')}">
-                                        <span class="criterion-name">${criterion.name}</span>
-                                        <span class="criterion-status">${criterion.status}</span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
+        exportBtn.style.display = 'inline-block';
+        comparisonGrid.innerHTML = '';
+        
+        this.selectedPlans.forEach(planId => {
+            const plan = this.plans.find(p => p.id === planId);
+            if (plan) {
+                const comparisonCard = document.createElement('div');
+                comparisonCard.className = 'comparison-card';
+                comparisonCard.innerHTML = `
+                    <h3>${plan.name}</h3>
+                    <div class="comparison-metric">
+                        <span class="metric-label">Plan Type:</span>
+                        <span class="metric-value">${plan.type === 'medicare' ? 'Medicare Advantage' : 'Medicaid'}</span>
                     </div>
-                `).join('')}
-            </div>
-
-            <div class="comparison-summary">
-                <h4>Comparison Summary</h4>
-                <div class="summary-grid">
-                    <div class="summary-item">
-                        <h5>STAR Rating Range</h5>
-                        <div class="rating-range">
-                            ${Math.min(...selectedPlans.map(p => p.starRating)).toFixed(1)} - ${Math.max(...selectedPlans.map(p => p.starRating)).toFixed(1)}
-                        </div>
+                    <div class="comparison-metric">
+                        <span class="metric-label">STAR Rating:</span>
+                        <span class="metric-value">
+                            <div class="stars">${this.renderStars(plan.starRating)}</div>
+                            <span class="rating-number">${plan.starRating}</span>
+                        </span>
                     </div>
-                    <div class="summary-item">
-                        <h5>NCQA Rating Range</h5>
-                        <div class="rating-range">
-                            ${Math.min(...selectedPlans.map(p => p.ncqaRating))} - ${Math.max(...selectedPlans.map(p => p.ncqaRating))}
-                        </div>
+                    <div class="comparison-metric">
+                        <span class="metric-label">Members:</span>
+                        <span class="metric-value">${this.formatNumber(plan.members)}</span>
                     </div>
-                    <div class="summary-item">
-                        <h5>Total Members</h5>
-                        <div class="members-range">
-                            ${this.formatNumber(Math.min(...selectedPlans.map(p => p.members)))} - ${this.formatNumber(Math.max(...selectedPlans.map(p => p.members)))}
-                        </div>
+                    <div class="comparison-metric">
+                        <span class="metric-label">CMS Failures:</span>
+                        <span class="metric-value ${plan.cmsFailures.length > 0 ? 'has-failures' : 'no-failures'}">${plan.cmsFailures.length}</span>
                     </div>
-                    <div class="summary-item">
-                        <h5>CMS Issues</h5>
-                        <div class="issues-summary">
-                            ${this.getTotalCMSIssues(selectedPlans)} total issues across all plans
-                        </div>
+                    <div class="comparison-metric">
+                        <span class="metric-label">State:</span>
+                        <span class="metric-value">${plan.state}</span>
                     </div>
-                </div>
-            </div>
-
-            <div class="comparison-actions">
-                <button onclick="app.exportComparison()" class="export-btn">Export Comparison</button>
-            </div>
-        `;
+                    <button class="btn btn-secondary btn-small" onclick="app.removeFromComparison(${planId})" style="margin-top: 1rem; width: 100%;">Remove</button>
+                `;
+                comparisonGrid.appendChild(comparisonCard);
+            }
+        });
     }
 
     removeFromComparison(planId) {
@@ -3381,6 +3291,35 @@ class MedicareMedicaidApp {
         return plans.reduce((total, plan) => {
             return total + (plan.cmsFailures ? plan.cmsFailures.length : 0);
         }, 0);
+    }
+
+    getRegionFromState(state) {
+        const regionMap = {
+            'Northeast': ['CT', 'ME', 'MA', 'NH', 'RI', 'VT', 'NJ', 'NY', 'PA'],
+            'Southeast': ['AL', 'AR', 'FL', 'GA', 'KY', 'LA', 'MS', 'NC', 'SC', 'TN', 'VA', 'WV'],
+            'Midwest': ['IL', 'IN', 'IA', 'KS', 'MI', 'MN', 'MO', 'NE', 'ND', 'OH', 'SD', 'WI'],
+            'Southwest': ['AZ', 'NM', 'OK', 'TX'],
+            'West': ['AK', 'CA', 'CO', 'HI', 'ID', 'MT', 'NV', 'OR', 'UT', 'WA', 'WY']
+        };
+        
+        for (const [region, states] of Object.entries(regionMap)) {
+            if (states.includes(state)) {
+                return region;
+            }
+        }
+        return 'Other';
+    }
+
+    generateRealisticStarRating() {
+        // Generate more realistic STAR ratings with proper distribution
+        const rand = Math.random();
+        if (rand < 0.05) return 5.0; // 5% get 5 stars
+        if (rand < 0.15) return 4.5; // 10% get 4.5 stars
+        if (rand < 0.35) return 4.0; // 20% get 4 stars
+        if (rand < 0.60) return 3.5; // 25% get 3.5 stars
+        if (rand < 0.80) return 3.0; // 20% get 3 stars
+        if (rand < 0.95) return 2.5; // 15% get 2.5 stars
+        return 2.0; // 5% get 2 stars
     }
 }
 
