@@ -10,7 +10,18 @@ class MedicareMedicaidApp {
         this.cacheKey = 'medicare_medicaid_plans_cache';
         this.cacheExpiryKey = 'medicare_medicaid_plans_cache_expiry';
         this.cacheDuration = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
-        this.apiBaseUrl = 'http://localhost:8000/api';
+        // Google Apps Script URL - UPDATED FOR COMPLETE API
+        this.apiBaseUrl = 'https://script.google.com/macros/s/AKfycbw5kcpQ0s0DOrY02dL9hgCjXr-Rxy2izaZY6vwtM1AvB_seLkxxxFeWDz4pgA_5UKuGNQ/exec';
+        this.isGoogleAppsScript = true;
+        
+        // API endpoint configuration
+        this.apiEndpoints = {
+            health: '?action=health',
+            plans: '?action=plans',
+            enrollment: '?action=enrollment', 
+            summary: '?action=summary',
+            refresh: '?action=refresh'
+        };
         
         this.init();
     }
@@ -241,23 +252,40 @@ class MedicareMedicaidApp {
             console.log('🔄 Fetching real Medicare and Medicaid plan data from backend...');
             this.updateLoadingText('Connecting to backend server...');
             
-            // Fetch all plans from backend API
-            const response = await fetch(`${this.apiBaseUrl}/plans`);
+            // Fetch all plans from backend API (Google Apps Script format)
+            const apiUrl = this.isGoogleAppsScript 
+                ? `${this.apiBaseUrl}?action=plans&limit=1000` 
+                : `${this.apiBaseUrl}/plans`;
+            const response = await fetch(apiUrl);
             
             if (!response.ok) {
                 throw new Error(`Backend API error: ${response.status} ${response.statusText}`);
             }
             
-            const allPlans = await response.json();
+            let responseData = await response.json();
+            let allPlans = [];
+            
+            // Handle Google Apps Script response format from our new API
+            if (this.isGoogleAppsScript) {
+                if (responseData.plans) {
+                    allPlans = responseData.plans;
+                } else if (Array.isArray(responseData)) {
+                    allPlans = responseData;
+                } else {
+                    throw new Error('Invalid response format from Google Apps Script');
+                }
+            } else {
+                allPlans = responseData;
+            }
             
             if (allPlans && allPlans.length > 0) {
                 console.log(`✅ Successfully fetched ${allPlans.length} real Medicare and Medicaid plans from backend`);
                 
                 // Transform backend data to frontend format
                 this.plans = allPlans.map(plan => ({
-                    id: plan.plan_id,
-                    name: plan.plan_name,
-                    type: plan.type || (plan.plan_type?.toLowerCase().includes('medicare') ? 'medicare' : 'medicaid'),
+                    id: plan.plan_id || plan.contract_id || Math.random().toString(36).substr(2, 9),
+                    name: plan.plan_name || plan.Plan_Name || 'Unknown Plan',
+                    type: plan.plan_type || plan.Plan_Type || (plan.type?.toLowerCase().includes('medicare') ? 'medicare' : 'medicaid'),
                     state: plan.state,
                     region: plan.region,
                     starRating: plan.star_rating,

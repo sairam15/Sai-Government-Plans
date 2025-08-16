@@ -1,0 +1,453 @@
+{
+  "summary": {
+    "total_plans": 51030,
+    "medicare_plans": 51000,
+    "medicaid_plans": 30,
+    "states_covered": 59,
+    "total_enrollment": 1066882,
+    "avg_star_rating": "3.72",
+    "data_sources": [
+      "CMS Medicare Monthly Enrollment",
+      "Sample Data"
+    ]
+  },
+  "generated_at": "2025-08-16T19:38:57.255Z",
+  "breakdown_by_state": {
+    "AK": {
+      "total_plans": 496,
+      "medicare_plans": 496,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "AL": {
+      "total_plans": 1104,
+      "medicare_plans": 1104,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "AR": {
+      "total_plans": 1232,
+      "medicare_plans": 1232,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "AS": {
+      "total_plans": 15,
+      "medicare_plans": 15,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "AZ": {
+      "total_plans": 272,
+      "medicare_plans": 272,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "CA": {
+      "total_plans": 963,
+      "medicare_plans": 960,
+      "medicaid_plans": 3,
+      "total_enrollment": 59760
+    },
+    "CO": {
+      "total_plans": 1056,
+      "medicare_plans": 1056,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "CT": {
+      "total_plans": 160,
+      "medicare_plans": 160,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "DC": {
+      "total_plans": 48,
+      "medicare_plans": 48,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "DE": {
+      "total_plans": 80,
+      "medicare_plans": 80,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "FL": {
+      "total_plans": 1107,
+      "medicare_plans": 1104,
+      "medicaid_plans": 3,
+      "total_enrollment": 126291
+    },
+    "FO": {
+      "total_plans": 15,
+      "medicare_plans": 15,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "GA": {
+      "total_plans": 2579,
+      "medicare_plans": 2576,
+      "medicaid_plans": 3,
+      "total_enrollment": 66918
+    },
+    "GU": {
+      "total_plans": 15,
+      "medicare_plans": 15,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "HI": {
+      "total_plans": 112,
+      "medicare_plans": 112,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "IA": {
+      "total_plans": 1616,
+      "medicare_plans": 1616,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "ID": {
+      "total_plans": 736,
+      "medicare_plans": 736,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "IL": {
+      "total_plans": 1667,
+      "medicare_plans": 1664,
+      "medicaid_plans": 3,
+      "total_enrollment": 146882
+    },
+    "IN": {
+      "total_plans": 1504,
+      "medicare_plans": 1504,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "KS": {
+      "total_plans": 1659,
+      "medicare_plans": 1659,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "KY": {
+      "total_plans": 1830,
+      "medicare_plans": 1830,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "LA": {
+      "total_plans": 990,
+      "medicare_plans": 990,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "MA": {
+      "total_plans": 240,
+      "medicare_plans": 240,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "MD": {
+      "total_plans": 390,
+      "medicare_plans": 390,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "ME": {
+      "total_plans": 270,
+      "medicare_plans": 270,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "MI": {
+      "total_plans": 1278,
+      "medicare_plans": 1275,
+      "medicaid_plans": 3,
+      "total_enrollment": 54346
+    },
+    "MN": {
+      "total_plans": 1335,
+      "medicare_plans": 1335,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "MO": {
+      "total_plans": 1755,
+      "medicare_plans": 1755,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "MP": {
+      "total_plans": 15,
+      "medicare_plans": 15,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "MS": {
+      "total_plans": 1260,
+      "medicare_plans": 1260,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "MT": {
+      "total_plans": 870,
+      "medicare_plans": 870,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "NC": {
+      "total_plans": 1533,
+      "medicare_plans": 1530,
+      "medicaid_plans": 3,
+      "total_enrollment": 95659
+    },
+    "ND": {
+      "total_plans": 825,
+      "medicare_plans": 825,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "NE": {
+      "total_plans": 1425,
+      "medicare_plans": 1425,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "NH": {
+      "total_plans": 180,
+      "medicare_plans": 180,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "NJ": {
+      "total_plans": 345,
+      "medicare_plans": 345,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "NM": {
+      "total_plans": 525,
+      "medicare_plans": 525,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "NV": {
+      "total_plans": 285,
+      "medicare_plans": 285,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "NY": {
+      "total_plans": 963,
+      "medicare_plans": 960,
+      "medicaid_plans": 3,
+      "total_enrollment": 126421
+    },
+    "OH": {
+      "total_plans": 1353,
+      "medicare_plans": 1350,
+      "medicaid_plans": 3,
+      "total_enrollment": 152438
+    },
+    "OK": {
+      "total_plans": 1185,
+      "medicare_plans": 1185,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "OR": {
+      "total_plans": 570,
+      "medicare_plans": 570,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "PA": {
+      "total_plans": 1038,
+      "medicare_plans": 1035,
+      "medicaid_plans": 3,
+      "total_enrollment": 126865
+    },
+    "PR": {
+      "total_plans": 1200,
+      "medicare_plans": 1200,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "RI": {
+      "total_plans": 105,
+      "medicare_plans": 105,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "SC": {
+      "total_plans": 720,
+      "medicare_plans": 720,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "SD": {
+      "total_plans": 1020,
+      "medicare_plans": 1020,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "TN": {
+      "total_plans": 1455,
+      "medicare_plans": 1455,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "TX": {
+      "total_plans": 3843,
+      "medicare_plans": 3840,
+      "medicaid_plans": 3,
+      "total_enrollment": 111302
+    },
+    "UK": {
+      "total_plans": 15,
+      "medicare_plans": 15,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "US": {
+      "total_plans": 16,
+      "medicare_plans": 16,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "UT": {
+      "total_plans": 465,
+      "medicare_plans": 465,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "VA": {
+      "total_plans": 2025,
+      "medicare_plans": 2025,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "VI": {
+      "total_plans": 75,
+      "medicare_plans": 75,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "VT": {
+      "total_plans": 240,
+      "medicare_plans": 240,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "WA": {
+      "total_plans": 615,
+      "medicare_plans": 615,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "WI": {
+      "total_plans": 1110,
+      "medicare_plans": 1110,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "WV": {
+      "total_plans": 855,
+      "medicare_plans": 855,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    },
+    "WY": {
+      "total_plans": 375,
+      "medicare_plans": 375,
+      "medicaid_plans": 0,
+      "total_enrollment": 0
+    }
+  },
+  "top_plans_by_enrollment": [
+    {
+      "Plan_Name": "NC Medicaid Health Plan 1",
+      "Org_Name": "NC Medicaid Organization 1",
+      "State": "NC",
+      "Plan_Type": "Medicaid Managed Care",
+      "Enrollment": 59249,
+      "Overall_Star_Rating": "N/A"
+    },
+    {
+      "Plan_Name": "OH Medicaid Health Plan 3",
+      "Org_Name": "OH Medicaid Organization 3",
+      "State": "OH",
+      "Plan_Type": "Medicaid Managed Care",
+      "Enrollment": 58869,
+      "Overall_Star_Rating": "N/A"
+    },
+    {
+      "Plan_Name": "IL Medicaid Health Plan 3",
+      "Org_Name": "IL Medicaid Organization 3",
+      "State": "IL",
+      "Plan_Type": "Medicaid Managed Care",
+      "Enrollment": 52322,
+      "Overall_Star_Rating": "N/A"
+    },
+    {
+      "Plan_Name": "TX Medicaid Health Plan 1",
+      "Org_Name": "TX Medicaid Organization 1",
+      "State": "TX",
+      "Plan_Type": "Medicaid Managed Care",
+      "Enrollment": 51994,
+      "Overall_Star_Rating": "N/A"
+    },
+    {
+      "Plan_Name": "IL Medicaid Health Plan 1",
+      "Org_Name": "IL Medicaid Organization 1",
+      "State": "IL",
+      "Plan_Type": "Medicaid Managed Care",
+      "Enrollment": 50075,
+      "Overall_Star_Rating": "N/A"
+    },
+    {
+      "Plan_Name": "PA Medicaid Health Plan 1",
+      "Org_Name": "PA Medicaid Organization 1",
+      "State": "PA",
+      "Plan_Type": "Medicaid Managed Care",
+      "Enrollment": 49936,
+      "Overall_Star_Rating": "N/A"
+    },
+    {
+      "Plan_Name": "NY Medicaid Health Plan 1",
+      "Org_Name": "NY Medicaid Organization 1",
+      "State": "NY",
+      "Plan_Type": "Medicaid Managed Care",
+      "Enrollment": 49776,
+      "Overall_Star_Rating": "N/A"
+    },
+    {
+      "Plan_Name": "NY Medicaid Health Plan 3",
+      "Org_Name": "NY Medicaid Organization 3",
+      "State": "NY",
+      "Plan_Type": "Medicaid Managed Care",
+      "Enrollment": 49290,
+      "Overall_Star_Rating": "N/A"
+    },
+    {
+      "Plan_Name": "OH Medicaid Health Plan 2",
+      "Org_Name": "OH Medicaid Organization 2",
+      "State": "OH",
+      "Plan_Type": "Medicaid Managed Care",
+      "Enrollment": 47413,
+      "Overall_Star_Rating": "N/A"
+    },
+    {
+      "Plan_Name": "FL Medicaid Health Plan 2",
+      "Org_Name": "FL Medicaid Organization 2",
+      "State": "FL",
+      "Plan_Type": "Medicaid Managed Care",
+      "Enrollment": 46754,
+      "Overall_Star_Rating": "N/A"
+    }
+  ]
+}
