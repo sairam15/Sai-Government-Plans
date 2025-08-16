@@ -1,0 +1,75 @@
+{
+  "app": {
+    "name": "Medicare & Medicaid Plans Comparison App",
+    "version": "1.0.0",
+    "description": "Comprehensive comparison tool for Medicare Advantage and Medicaid plans across the United States",
+    "author": "Your Organization",
+    "maintainer": "Your Team"
+  },
+  "deployment": {
+    "options": [
+      {
+        "name": "GitHub Pages",
+        "type": "static",
+        "cost": "free",
+        "setup_time": "5 minutes",
+        "url": "https://your-org.github.io/medicare-medicaid-plans",
+        "instructions": "deploy-github-pages.md"
+      },
+      {
+        "name": "Netlify",
+        "type": "static",
+        "cost": "free",
+        "setup_time": "10 minutes",
+        "url": "https://your-medicare-app.netlify.app",
+        "instructions": "deploy-netlify.md"
+      },
+      {
+        "name": "Vercel",
+        "type": "static",
+        "cost": "free",
+        "setup_time": "10 minutes",
+        "url": "https://your-medicare-app.vercel.app",
+        "instructions": "deploy-vercel.md"
+      },
+      {
+        "name": "AWS S3 + CloudFront",
+        "type": "static",
+        "cost": "$1-5/month",
+        "setup_time": "30 minutes",
+        "url": "https://your-medicare-app.your-domain.com",
+        "instructions": "deploy-aws.md"
+      },
+      {
+        "name": "Internal Server",
+        "type": "self-hosted",
+        "cost": "existing infrastructure",
+        "setup_time": "15 minutes",
+        "url": "https://internal.your-company.com/medicare-app",
+        "instructions": "deploy-internal.md"
+      }
+    ]
+  },
+  "features": {
+    "data_sources": [
+      "CMS Medicare Advantage Plans",
+      "State Medicaid Programs",
+      "NCQA Accreditation Data",
+      "Real-time STAR Ratings",
+      "Member Count Analytics"
+    ],
+    "capabilities": [
+      "Plan Comparison",
+      "Regional Filtering",
+      "Quality Metrics Analysis",
+      "Export Functionality",
+      "Mobile Responsive"
+    ]
+  },
+  "security": {
+    "data_handling": "client-side only",
+    "api_calls": "public endpoints only",
+    "authentication": "none required",
+    "compliance": "HIPAA-friendly (no PHI stored)"
+  }
+}
