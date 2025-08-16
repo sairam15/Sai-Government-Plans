@@ -98,21 +98,24 @@ class MedicareMedicaidApp {
     }
 
     async init() {
-        // Clear any existing cache to remove old junk data
-        this.clearCache();
-        
         this.showLoadingState();
         this.updateLoadingText('Initializing application...');
         
         // Check if we have cached data
-        const cachedData = this.loadFromCache();
-        if (cachedData && cachedData.length > 0) {
+        const hasCachedData = await this.loadFromCache();
+        if (hasCachedData && this.plans && this.plans.length > 0) {
             this.updateLoadingText('Loading cached data...');
-            this.plans = cachedData;
             this.hideLoadingState();
             this.renderPlansTable();
-            this.updateDataSourceText('Using cached data', 'cached');
-            this.showNotification('Loaded data from cache', 'info');
+            this.updateStats();
+            this.updateMemberBreakdown();
+            this.updateStarAnalysis();
+            this.updateCMSCriteria();
+            this.updateSearchResultsInfo();
+            this.updateRegionalBreakdown();
+            this.updateCMSFailureAnalysis();
+            this.updateDataSourceText(`Using cached data (${this.plans.length} plans)`, 'cached');
+            this.showNotification(`Loaded ${this.plans.length} plans from cache`, 'info');
             
             // Check if cache needs refresh
             this.checkAndRefreshCache();
@@ -161,7 +164,7 @@ class MedicareMedicaidApp {
         try {
             localStorage.setItem(this.cacheKey, JSON.stringify(this.plans));
             localStorage.setItem(this.cacheExpiryKey, (Date.now() + this.cacheDuration).toString());
-            console.log(`💾 Cached ${this.plans.length} plans for 24 hours`);
+            console.log(`💾 Cached ${this.plans.length} plans for 7 days`);
         } catch (error) {
             console.warn('⚠️ Error saving to cache:', error);
         }
@@ -1862,15 +1865,89 @@ class MedicareMedicaidApp {
         document.getElementById('clear-cache').addEventListener('click', () => {
             this.clearCache();
         });
+
+        // Add cache status display
+        this.updateCacheStatusDisplay();
+    }
+
+    updateCacheStatusDisplay() {
+        const cacheStatus = this.getCacheStatus();
+        const cacheInfoElement = document.getElementById('cache-info');
+        
+        if (cacheInfoElement) {
+            if (cacheStatus.hasCache) {
+                cacheInfoElement.innerHTML = `
+                    <div class="cache-status active">
+                        <span class="cache-icon">📦</span>
+                        <span class="cache-text">Cache: ${cacheStatus.planCount} plans (${cacheStatus.daysUntilExpiry} days left)</span>
+                    </div>
+                `;
+            } else {
+                cacheInfoElement.innerHTML = `
+                    <div class="cache-status inactive">
+                        <span class="cache-icon">❌</span>
+                        <span class="cache-text">No cache available</span>
+                    </div>
+                `;
+            }
+        }
     }
 
     clearCache() {
         try {
             localStorage.removeItem(this.cacheKey);
             localStorage.removeItem(this.cacheExpiryKey);
-            console.log('🗑️ Cache cleared to remove old junk data');
+            console.log('🗑️ Cache cleared');
+            this.showNotification('Cache cleared successfully. Data will be refreshed on next load.', 'success');
         } catch (error) {
             console.error('Error clearing cache:', error);
+            this.showNotification('Error clearing cache.', 'error');
+        }
+    }
+
+    getCacheStatus() {
+        try {
+            const cachedData = localStorage.getItem(this.cacheKey);
+            const cacheExpiry = localStorage.getItem(this.cacheExpiryKey);
+            
+            if (cachedData && cacheExpiry) {
+                const expiryTime = parseInt(cacheExpiry);
+                const currentTime = Date.now();
+                const timeUntilExpiry = expiryTime - currentTime;
+                const daysUntilExpiry = Math.ceil(timeUntilExpiry / (24 * 60 * 60 * 1000));
+                
+                if (currentTime < expiryTime) {
+                    const plans = JSON.parse(cachedData);
+                    return {
+                        hasCache: true,
+                        planCount: plans.length,
+                        daysUntilExpiry: daysUntilExpiry,
+                        isExpired: false
+                    };
+                } else {
+                    return {
+                        hasCache: false,
+                        planCount: 0,
+                        daysUntilExpiry: 0,
+                        isExpired: true
+                    };
+                }
+            } else {
+                return {
+                    hasCache: false,
+                    planCount: 0,
+                    daysUntilExpiry: 0,
+                    isExpired: false
+                };
+            }
+        } catch (error) {
+            console.error('Error checking cache status:', error);
+            return {
+                hasCache: false,
+                planCount: 0,
+                daysUntilExpiry: 0,
+                isExpired: false
+            };
         }
     }
 
