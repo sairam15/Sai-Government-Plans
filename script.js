@@ -281,27 +281,27 @@ class MedicareMedicaidApp {
             if (allPlans && allPlans.length > 0) {
                 console.log(`✅ Successfully fetched ${allPlans.length} real Medicare and Medicaid plans from backend`);
                 
-                // Transform backend data to frontend format
+                // Transform backend data to frontend format with safer property access
                 this.plans = allPlans.map(plan => ({
                     id: plan.plan_id || plan.contract_id || Math.random().toString(36).substr(2, 9),
                     name: plan.plan_name || plan.Plan_Name || 'Unknown Plan',
                     type: plan.plan_type || plan.Plan_Type || (plan.type?.toLowerCase().includes('medicare') ? 'medicare' : 'medicaid'),
-                    state: plan.state,
-                    region: plan.region,
-                    starRating: plan.star_rating,
-                    ncqaRating: plan.ncqa_rating,
-                    members: plan.member_count,
-                    contractId: plan.contract_id,
-                    organization: plan.organization,
-                    planType: plan.plan_type,
-                    county: this.getCountyForState(plan.state),
-                    zipCode: this.getZipForState(plan.state),
-                    phone: plan.phone,
-                    website: plan.website,
-                    source: `Real ${plan.plan_type} Data from Backend`,
-                    lastUpdated: plan.last_updated,
-                    cmsCriteria: this.generateComprehensiveCMSCriteria(plan.star_rating),
-                    cmsFailures: this.generateDetailedCMSFailures(plan.star_rating, this.generateComprehensiveCMSCriteria(plan.star_rating))
+                    state: plan.state || 'Unknown',
+                    region: plan.region || this.getRegionFromState(plan.state),
+                    starRating: parseFloat(plan.star_rating) || parseFloat(plan.overall_star_rating) || 0,
+                    ncqaRating: plan.ncqa_rating || 'N/A',
+                    members: parseInt(plan.member_count) || parseInt(plan.enrollment) || 0,
+                    contractId: plan.contract_id || plan.Contract_ID || 'N/A',
+                    organization: plan.organization || plan.org_name || plan.Org_Name || 'Unknown Organization',
+                    planType: plan.plan_type || plan.Plan_Type || 'Unknown',
+                    county: this.getCountyForState(plan.state) || 'Unknown',
+                    zipCode: this.getZipForState(plan.state) || 'N/A',
+                    phone: plan.phone || '1-800-MEDICARE',
+                    website: plan.website || 'https://medicare.gov',
+                    source: `Real ${plan.plan_type || 'Plan'} Data from Backend`,
+                    lastUpdated: plan.last_updated || new Date().toISOString().split('T')[0],
+                    cmsCriteria: this.generateComprehensiveCMSCriteria(parseFloat(plan.star_rating) || parseFloat(plan.overall_star_rating) || 0),
+                    cmsFailures: this.generateDetailedCMSFailures(parseFloat(plan.star_rating) || parseFloat(plan.overall_star_rating) || 0, this.generateComprehensiveCMSCriteria(parseFloat(plan.star_rating) || parseFloat(plan.overall_star_rating) || 0))
                 }));
                 
                 // Add CMS failure counts
@@ -4233,8 +4233,19 @@ class MedicareMedicaidApp {
     }
 
     getNCQAIndicator(ncqaRating) {
-        const level = ncqaRating.level;
-        const score = ncqaRating.score;
+        // Handle cases where ncqaRating is null, undefined, or a string
+        if (!ncqaRating || typeof ncqaRating === 'string') {
+            const displayValue = ncqaRating || 'N/A';
+            return `
+                <span class="ncqa-indicator" style="color: #64748b; font-weight: 600;">
+                    ${displayValue}
+                </span>
+            `;
+        }
+        
+        // Handle object format with level and score
+        const level = ncqaRating.level || 'N/A';
+        const score = ncqaRating.score || 0;
         
         const levelColors = {
             'Excellent': '#059669',
