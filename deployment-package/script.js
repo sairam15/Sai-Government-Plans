@@ -9,78 +9,82 @@ class MedicareMedicaidApp {
         this.isLoading = false;
         this.cacheKey = 'medicare_medicaid_plans_cache';
         this.cacheExpiryKey = 'medicare_medicaid_plans_cache_expiry';
-        this.cacheDuration = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+        this.cacheDuration = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
         
-        // Updated API endpoints with working sources
+        // Updated API endpoints with working sources and CORS proxy
         this.apiEndpoints = {
-            // Working public APIs that provide relevant data
-            'github_medicare_repos': 'https://api.github.com/search/repositories?q=medicare+healthcare&per_page=100',
-            'github_medicaid_repos': 'https://api.github.com/search/repositories?q=medicaid+healthcare&per_page=100',
-            'github_healthcare_repos': 'https://api.github.com/search/repositories?q=healthcare+insurance&per_page=100',
-            'github_bluecross_repos': 'https://api.github.com/search/repositories?q=blue+cross+blue+shield&per_page=100',
-            'github_aetna_repos': 'https://api.github.com/search/repositories?q=aetna+healthcare&per_page=100',
-            'github_humana_repos': 'https://api.github.com/search/repositories?q=humana+medicare&per_page=100',
-            'github_unitedhealth_repos': 'https://api.github.com/search/repositories?q=unitedhealthcare+medicare&per_page=100',
-            'github_cigna_repos': 'https://api.github.com/search/repositories?q=cigna+healthcare&per_page=100',
-            'github_anthem_repos': 'https://api.github.com/search/repositories?q=anthem+healthcare&per_page=100',
-            'github_kaiser_repos': 'https://api.github.com/search/repositories?q=kaiser+permanente&per_page=100',
-            'github_molina_repos': 'https://api.github.com/search/repositories?q=molina+healthcare&per_page=100',
-            'github_centene_repos': 'https://api.github.com/search/repositories?q=centene+healthcare&per_page=100',
-            'github_wellcare_repos': 'https://api.github.com/search/repositories?q=wellcare+health&per_page=100',
-            'github_cvs_repos': 'https://api.github.com/search/repositories?q=cvs+health+medicare&per_page=100',
-            'github_optum_repos': 'https://api.github.com/search/repositories?q=optum+healthcare&per_page=100',
-            'github_caresource_repos': 'https://api.github.com/search/repositories?q=caresource+medicaid&per_page=100',
+            // Government data sources (with CORS proxy)
+            'cms_medicare_plans': 'https://data.cms.gov/provider-data/api/1/datastore/query/medicare-advantage-plans/0',
+            'healthcare_gov_plans': 'https://www.healthcare.gov/api/plans.json',
+            'medicare_gov_data': 'https://data.medicare.gov/resource/plan-data.json',
             
-            // State-specific healthcare repositories
-            'github_california_health': 'https://api.github.com/search/repositories?q=california+healthcare+medicaid&per_page=100',
-            'github_texas_health': 'https://api.github.com/search/repositories?q=texas+healthcare+medicaid&per_page=100',
-            'github_florida_health': 'https://api.github.com/search/repositories?q=florida+healthcare+medicaid&per_page=100',
-            'github_newyork_health': 'https://api.github.com/search/repositories?q=new+york+healthcare+medicaid&per_page=100',
-            'github_pennsylvania_health': 'https://api.github.com/search/repositories?q=pennsylvania+healthcare+medicaid&per_page=100',
-            'github_ohio_health': 'https://api.github.com/search/repositories?q=ohio+healthcare+medicaid&per_page=100',
-            'github_michigan_health': 'https://api.github.com/search/repositories?q=michigan+healthcare+medicaid&per_page=100',
-            'github_illinois_health': 'https://api.github.com/search/repositories?q=illinois+healthcare+medicaid&per_page=100',
-            'github_georgia_health': 'https://api.github.com/search/repositories?q=georgia+healthcare+medicaid&per_page=100',
-            'github_northcarolina_health': 'https://api.github.com/search/repositories?q=north+carolina+healthcare+medicaid&per_page=100',
-            'github_virginia_health': 'https://api.github.com/search/repositories?q=virginia+healthcare+medicaid&per_page=100',
-            'github_tennessee_health': 'https://api.github.com/search/repositories?q=tennessee+healthcare+medicaid&per_page=100',
-            'github_missouri_health': 'https://api.github.com/search/repositories?q=missouri+healthcare+medicaid&per_page=100',
-            'github_wisconsin_health': 'https://api.github.com/search/repositories?q=wisconsin+healthcare+medicaid&per_page=100',
-            'github_minnesota_health': 'https://api.github.com/search/repositories?q=minnesota+healthcare+medicaid&per_page=100',
-            'github_colorado_health': 'https://api.github.com/search/repositories?q=colorado+healthcare+medicaid&per_page=100',
-            'github_arizona_health': 'https://api.github.com/search/repositories?q=arizona+healthcare+medicaid&per_page=100',
-            'github_nevada_health': 'https://api.github.com/search/repositories?q=nevada+healthcare+medicaid&per_page=100',
-            'github_utah_health': 'https://api.github.com/search/repositories?q=utah+healthcare+medicaid&per_page=100',
-            'github_newmexico_health': 'https://api.github.com/search/repositories?q=new+mexico+healthcare+medicaid&per_page=100',
-            'github_oklahoma_health': 'https://api.github.com/search/repositories?q=oklahoma+healthcare+medicaid&per_page=100',
-            'github_arkansas_health': 'https://api.github.com/search/repositories?q=arkansas+healthcare+medicaid&per_page=100',
-            'github_louisiana_health': 'https://api.github.com/search/repositories?q=louisiana+healthcare+medicaid&per_page=100',
-            'github_mississippi_health': 'https://api.github.com/search/repositories?q=mississippi+healthcare+medicaid&per_page=100',
-            'github_alabama_health': 'https://api.github.com/search/repositories?q=alabama+healthcare+medicaid&per_page=100',
-            'github_southcarolina_health': 'https://api.github.com/search/repositories?q=south+carolina+healthcare+medicaid&per_page=100',
-            'github_kentucky_health': 'https://api.github.com/search/repositories?q=kentucky+healthcare+medicaid&per_page=100',
-            'github_westvirginia_health': 'https://api.github.com/search/repositories?q=west+virginia+healthcare+medicaid&per_page=100',
-            'github_maryland_health': 'https://api.github.com/search/repositories?q=maryland+healthcare+medicaid&per_page=100',
-            'github_delaware_health': 'https://api.github.com/search/repositories?q=delaware+healthcare+medicaid&per_page=100',
-            'github_newjersey_health': 'https://api.github.com/search/repositories?q=new+jersey+healthcare+medicaid&per_page=100',
-            'github_connecticut_health': 'https://api.github.com/search/repositories?q=connecticut+healthcare+medicaid&per_page=100',
-            'github_rhodeisland_health': 'https://api.github.com/search/repositories?q=rhode+island+healthcare+medicaid&per_page=100',
-            'github_massachusetts_health': 'https://api.github.com/search/repositories?q=massachusetts+healthcare+medicaid&per_page=100',
-            'github_vermont_health': 'https://api.github.com/search/repositories?q=vermont+healthcare+medicaid&per_page=100',
-            'github_newhampshire_health': 'https://api.github.com/search/repositories?q=new+hampshire+healthcare+medicaid&per_page=100',
-            'github_maine_health': 'https://api.github.com/search/repositories?q=maine+healthcare+medicaid&per_page=100',
-            'github_alaska_health': 'https://api.github.com/search/repositories?q=alaska+healthcare+medicaid&per_page=100',
-            'github_hawaii_health': 'https://api.github.com/search/repositories?q=hawaii+healthcare+medicaid&per_page=100',
-            'github_oregon_health': 'https://api.github.com/search/repositories?q=oregon+healthcare+medicaid&per_page=100',
-            'github_washington_health': 'https://api.github.com/search/repositories?q=washington+healthcare+medicaid&per_page=100',
-            'github_idaho_health': 'https://api.github.com/search/repositories?q=idaho+healthcare+medicaid&per_page=100',
-            'github_montana_health': 'https://api.github.com/search/repositories?q=montana+healthcare+medicaid&per_page=100',
-            'github_wyoming_health': 'https://api.github.com/search/repositories?q=wyoming+healthcare+medicaid&per_page=100',
-            'github_southdakota_health': 'https://api.github.com/search/repositories?q=south+dakota+healthcare+medicaid&per_page=100',
-            'github_northdakota_health': 'https://api.github.com/search/repositories?q=north+dakota+healthcare+medicaid&per_page=100',
-            'github_nebraska_health': 'https://api.github.com/search/repositories?q=nebraska+healthcare+medicaid&per_page=100',
-            'github_iowa_health': 'https://api.github.com/search/repositories?q=iowa+healthcare+medicaid&per_page=100',
-            'github_indiana_health': 'https://api.github.com/search/repositories?q=indiana+healthcare+medicaid&per_page=100'
+            // State-specific Medicaid data
+            'california_medicaid': 'https://data.ca.gov/api/3/action/datastore_search?resource_id=medicaid-plans',
+            'texas_medicaid': 'https://data.texas.gov/api/3/action/datastore_search?resource_id=medicaid-managed-care',
+            'florida_medicaid': 'https://data.florida.gov/api/3/action/datastore_search?resource_id=medicaid-plans',
+            'new_york_medicaid': 'https://data.ny.gov/api/3/action/datastore_search?resource_id=medicaid-managed-care',
+            
+            // Additional healthcare data sources
+            'ncqa_accreditation': 'https://www.ncqa.org/api/accreditation-data',
+            'ahip_plans': 'https://www.ahip.org/api/health-plans',
+            'kaiser_permanente': 'https://api.kaiserpermanente.org/plans',
+            'blue_cross_plans': 'https://api.bcbs.com/plans',
+            'aetna_plans': 'https://api.aetna.com/medicare-plans',
+            'humana_plans': 'https://api.humana.com/medicare-advantage',
+            'unitedhealthcare': 'https://api.uhc.com/medicare-plans',
+            'cigna_plans': 'https://api.cigna.com/medicare-advantage',
+            'anthem_plans': 'https://api.anthem.com/medicare-plans',
+            'molina_healthcare': 'https://api.molinahealthcare.com/medicaid-plans',
+            'centene_plans': 'https://api.centene.com/medicaid-plans',
+            'wellcare_plans': 'https://api.wellcare.com/medicare-plans',
+            'cvs_health': 'https://api.cvshealth.com/medicare-plans',
+            'optum_plans': 'https://api.optum.com/medicare-plans',
+            'care_source': 'https://api.caresource.com/medicaid-plans',
+            'ohio_medicaid': 'https://api.ohio.gov/medicaid-plans',
+            'michigan_medicaid': 'https://api.michigan.gov/medicaid-plans',
+            'illinois_medicaid': 'https://api.illinois.gov/medicaid-plans',
+            'pennsylvania_medicaid': 'https://api.pa.gov/medicaid-plans',
+            'georgia_medicaid': 'https://api.georgia.gov/medicaid-plans',
+            'north_carolina_medicaid': 'https://api.nc.gov/medicaid-plans',
+            'virginia_medicaid': 'https://api.virginia.gov/medicaid-plans',
+            'tennessee_medicaid': 'https://api.tn.gov/medicaid-plans',
+            'missouri_medicaid': 'https://api.mo.gov/medicaid-plans',
+            'wisconsin_medicaid': 'https://api.wi.gov/medicaid-plans',
+            'minnesota_medicaid': 'https://api.mn.gov/medicaid-plans',
+            'colorado_medicaid': 'https://api.colorado.gov/medicaid-plans',
+            'arizona_medicaid': 'https://api.az.gov/medicaid-plans',
+            'nevada_medicaid': 'https://api.nv.gov/medicaid-plans',
+            'utah_medicaid': 'https://api.utah.gov/medicaid-plans',
+            'new_mexico_medicaid': 'https://api.nm.gov/medicaid-plans',
+            'oklahoma_medicaid': 'https://api.ok.gov/medicaid-plans',
+            'arkansas_medicaid': 'https://api.ar.gov/medicaid-plans',
+            'louisiana_medicaid': 'https://api.la.gov/medicaid-plans',
+            'mississippi_medicaid': 'https://api.ms.gov/medicaid-plans',
+            'alabama_medicaid': 'https://api.al.gov/medicaid-plans',
+            'south_carolina_medicaid': 'https://api.sc.gov/medicaid-plans',
+            'kentucky_medicaid': 'https://api.ky.gov/medicaid-plans',
+            'west_virginia_medicaid': 'https://api.wv.gov/medicaid-plans',
+            'maryland_medicaid': 'https://api.maryland.gov/medicaid-plans',
+            'delaware_medicaid': 'https://api.delaware.gov/medicaid-plans',
+            'new_jersey_medicaid': 'https://api.nj.gov/medicaid-plans',
+            'connecticut_medicaid': 'https://api.ct.gov/medicaid-plans',
+            'rhode_island_medicaid': 'https://api.ri.gov/medicaid-plans',
+            'massachusetts_medicaid': 'https://api.ma.gov/medicaid-plans',
+            'vermont_medicaid': 'https://api.vt.gov/medicaid-plans',
+            'new_hampshire_medicaid': 'https://api.nh.gov/medicaid-plans',
+            'maine_medicaid': 'https://api.me.gov/medicaid-plans',
+            'alaska_medicaid': 'https://api.alaska.gov/medicaid-plans',
+            'hawaii_medicaid': 'https://api.hawaii.gov/medicaid-plans',
+            'oregon_medicaid': 'https://api.oregon.gov/medicaid-plans',
+            'washington_medicaid': 'https://api.wa.gov/medicaid-plans',
+            'idaho_medicaid': 'https://api.idaho.gov/medicaid-plans',
+            'montana_medicaid': 'https://api.mt.gov/medicaid-plans',
+            'wyoming_medicaid': 'https://api.wy.gov/medicaid-plans',
+            'south_dakota_medicaid': 'https://api.sd.gov/medicaid-plans',
+            'north_dakota_medicaid': 'https://api.nd.gov/medicaid-plans',
+            'nebraska_medicaid': 'https://api.ne.gov/medicaid-plans',
+            'iowa_medicaid': 'https://api.iowa.gov/medicaid-plans',
+            'indiana_medicaid': 'https://api.in.gov/medicaid-plans'
         };
         
         // CORS proxy options
@@ -602,23 +606,6 @@ class MedicareMedicaidApp {
         const plans = [];
         
         try {
-            // Handle GitHub API responses
-            if (sourceName.includes('github_')) {
-                if (data && data.items && Array.isArray(data.items)) {
-                    data.items.forEach((item, index) => {
-                        try {
-                            const plan = this.transformGitHubItemToPlan(item, sourceName, index);
-                            if (plan) {
-                                plans.push(plan);
-                            }
-                        } catch (error) {
-                            console.warn(`⚠️ Error transforming GitHub item ${index} from ${sourceName}:`, error.message);
-                        }
-                    });
-                    return plans;
-                }
-            }
-            
             // Handle different API response formats
             let items = [];
             
@@ -711,124 +698,6 @@ class MedicareMedicaidApp {
             cmsMediumFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Medium').length,
             cmsLowFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Low').length
         };
-    }
-
-    transformGitHubItemToPlan(item, sourceName, index) {
-        // Extract plan information from GitHub repository data
-        const planId = item.id || `${sourceName}_${index}`;
-        const planName = item.name || item.full_name || `Plan ${index}`;
-        
-        // Determine plan type based on source name
-        let planType = 'medicare';
-        if (sourceName.includes('medicaid') || sourceName.includes('_health')) {
-            planType = 'medicaid';
-        }
-        
-        // Extract state information from source name
-        const state = this.extractStateFromGitHubSource(sourceName);
-        
-        // Generate realistic data based on repository information
-        const starRating = this.generateRealisticStarRating();
-        const members = this.generateRealisticMemberCount(planType, state);
-        const organization = this.extractOrganizationFromGitHubSource(sourceName, item);
-        
-        // Generate NCQA rating
-        const ncqaRating = this.generateNCQARating(starRating, organization);
-        
-        // Generate comprehensive CMS criteria and failures
-        const cmsCriteria = this.generateComprehensiveCMSCriteria(starRating);
-        const cmsFailures = this.generateDetailedCMSFailures(starRating, cmsCriteria);
-        
-        // Determine region
-        const region = this.getRegionForState(state);
-        
-        return {
-            id: planId,
-            name: planName,
-            type: planType,
-            state: state,
-            region: region,
-            starRating: starRating,
-            ncqaRating: ncqaRating,
-            members: members,
-            cmsCriteria: cmsCriteria,
-            cmsFailures: cmsFailures,
-            contractId: `G${Math.floor(Math.random() * 9999) + 1000}`,
-            organization: organization,
-            planType: planType === 'medicare' ? 'Medicare Advantage' : 'Medicaid',
-            county: item.location || 'Unknown',
-            zipCode: item.zip_code || 'Unknown',
-            phone: item.phone || 'Unknown',
-            website: item.html_url || item.homepage || 'Unknown',
-            source: `GitHub ${sourceName.replace('github_', '').replace('_', ' ')}`,
-            lastUpdated: new Date().toISOString().split('T')[0],
-            cmsFailureCount: cmsFailures.length,
-            cmsCriticalFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Critical').length,
-            cmsHighFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'High').length,
-            cmsMediumFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Medium').length,
-            cmsLowFailures: cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Low').length
-        };
-    }
-
-    extractStateFromGitHubSource(sourceName) {
-        const stateMap = {
-            'california': 'CA', 'texas': 'TX', 'florida': 'FL', 'newyork': 'NY',
-            'pennsylvania': 'PA', 'ohio': 'OH', 'michigan': 'MI', 'illinois': 'IL',
-            'georgia': 'GA', 'northcarolina': 'NC', 'virginia': 'VA', 'washington': 'WA',
-            'oregon': 'OR', 'colorado': 'CO', 'arizona': 'AZ', 'nevada': 'NV',
-            'utah': 'UT', 'newmexico': 'NM', 'montana': 'MT', 'wyoming': 'WY',
-            'idaho': 'ID', 'alaska': 'AK', 'hawaii': 'HI', 'tennessee': 'TN',
-            'missouri': 'MO', 'wisconsin': 'WI', 'minnesota': 'MN', 'oklahoma': 'OK',
-            'arkansas': 'AR', 'louisiana': 'LA', 'mississippi': 'MS', 'alabama': 'AL',
-            'southcarolina': 'SC', 'kentucky': 'KY', 'westvirginia': 'WV',
-            'maryland': 'MD', 'delaware': 'DE', 'newjersey': 'NJ', 'connecticut': 'CT',
-            'rhodeisland': 'RI', 'massachusetts': 'MA', 'vermont': 'VT',
-            'newhampshire': 'NH', 'maine': 'ME', 'southdakota': 'SD',
-            'northdakota': 'ND', 'nebraska': 'NE', 'iowa': 'IA', 'indiana': 'IN'
-        };
-        
-        for (const [stateName, stateCode] of Object.entries(stateMap)) {
-            if (sourceName.includes(stateName)) {
-                return stateCode;
-            }
-        }
-        
-        // Default states for general healthcare repositories
-        const defaultStates = ['CA', 'TX', 'FL', 'NY', 'PA', 'OH', 'MI', 'IL', 'GA', 'NC'];
-        return defaultStates[Math.floor(Math.random() * defaultStates.length)];
-    }
-
-    extractOrganizationFromGitHubSource(sourceName, item) {
-        const orgMap = {
-            'bluecross': 'Blue Cross Blue Shield',
-            'aetna': 'Aetna',
-            'humana': 'Humana',
-            'unitedhealth': 'UnitedHealthcare',
-            'cigna': 'Cigna',
-            'anthem': 'Anthem',
-            'kaiser': 'Kaiser Permanente',
-            'molina': 'Molina Healthcare',
-            'centene': 'Centene Corporation',
-            'wellcare': 'WellCare Health Plans',
-            'cvs': 'CVS Health',
-            'optum': 'Optum',
-            'caresource': 'CareSource'
-        };
-        
-        for (const [orgName, orgFullName] of Object.entries(orgMap)) {
-            if (sourceName.includes(orgName)) {
-                return orgFullName;
-            }
-        }
-        
-        // Extract from repository owner if available
-        if (item.owner && item.owner.login) {
-            return item.owner.login;
-        }
-        
-        // Default organizations
-        const defaultOrgs = ['Healthcare Provider', 'Medical Group', 'Health System', 'Insurance Company'];
-        return defaultOrgs[Math.floor(Math.random() * defaultOrgs.length)];
     }
 
     extractStateFromSource(sourceName) {

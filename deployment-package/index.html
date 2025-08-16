@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicare & Medicaid Plans Comparison</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <h1><i class="fas fa-heartbeat"></i>Sai STARs and CX Benchmark Tracker</h1>
+                <p>Compare STAR ratings, member counts, and CMS criteria across all plans</p>
+                <div class="header-actions">
+                    <button class="btn btn-primary btn-small" id="refresh-data">
+                        <i class="fas fa-sync-alt"></i> Refresh Data
+                    </button>
+                    <button class="btn btn-secondary btn-small" id="clear-cache">
+                        <i class="fas fa-trash"></i> Clear Cache
+                    </button>
+                    <button class="btn btn-secondary btn-small" id="show-help">
+                        <i class="fas fa-question-circle"></i> Help
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="container">
+                <button class="nav-btn active" data-view="overview">Overview</button>
+                <button class="nav-btn" data-view="comparison">Plan Comparison</button>
+                <button class="nav-btn" data-view="star-analysis">STAR Analysis</button>
+                <button class="nav-btn" data-view="member-analysis">Member Analysis</button>
+                <button class="nav-btn" data-view="cms-criteria">CMS Criteria</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="container">
+                <!-- Overview Section -->
+                <section id="overview" class="section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Total Plans</h3>
+                            <div class="stat-number" id="total-plans">0</div>
+                            <p>Medicare Advantage & Medicaid</p>
+                            <div class="stat-subtitle" id="plan-source-info">Loading from 15+ sources...</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Average STAR Rating</h3>
+                            <div class="stat-number" id="avg-stars">0.0</div>
+                            <div class="stars-display">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total Members</h3>
+                            <div class="stat-number" id="total-members">0</div>
+                            <p>Across all plans</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Top Rated Plans</h3>
+                            <div class="stat-number" id="top-rated">0</div>
+                            <p>4.5+ star plans</p>
+                        </div>
+                    </div>
+
+                    <div class="comprehensive-stats">
+                        <h3>Comprehensive Plan Coverage</h3>
+                        <div class="coverage-grid">
+                            <div class="coverage-item">
+                                <div class="stat-number" id="ma-count">0</div>
+                                <div class="stat-subtitle">Medicare Advantage Plans</div>
+                            </div>
+                            <div class="coverage-item">
+                                <div class="stat-number" id="medicaid-count">0</div>
+                                <div class="stat-subtitle">Medicaid Plans</div>
+                            </div>
+                            <div class="coverage-item">
+                                <div class="stat-number" id="states-count">0</div>
+                                <div class="stat-subtitle">States Covered</div>
+                            </div>
+                            <div class="coverage-item">
+                                <div class="stat-number" id="orgs-count">0</div>
+                                <div class="stat-subtitle">Organizations</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-breakdown-section">
+                        <h3>Regional Breakdown</h3>
+                        <div id="regional-breakdown" class="regional-breakdown"></div>
+                    </div>
+                    
+                    <div class="cms-failure-section">
+                        <h3>CMS Performance Analysis</h3>
+                        <div id="cms-failure-analysis" class="cms-failure-analysis"></div>
+                    </div>
+
+                    <div class="member-breakdown">
+                        <h3>Member Distribution by Plan</h3>
+                        <div class="member-chart" id="member-chart">
+                            <!-- Member breakdown will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="filters">
+                        <div class="search-container">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="plan-search" placeholder="Search plans by name, state, or other criteria...">
+                                <button class="btn btn-secondary" id="clear-search">Clear</button>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <label for="plan-type">Plan Type:</label>
+                            <select id="plan-type">
+                                <option value="all">All Types</option>
+                                <option value="medicare">Medicare Advantage</option>
+                                <option value="medicaid">Medicaid</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="star-filter">STAR Rating:</label>
+                            <select id="star-filter">
+                                <option value="all">All Ratings</option>
+                                <option value="5">5+ Stars</option>
+                                <option value="4">4+ Stars</option>
+                                <option value="3">3+ Stars</option>
+                                <option value="2">2+ Stars</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="state-filter">State:</label>
+                            <select id="state-filter">
+                                <option value="all">All States</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="plan-size-filter">Plan Size:</label>
+                            <select id="plan-size-filter">
+                                <option value="all">All Sizes</option>
+                                <option value="national">National</option>
+                                <option value="regional">Regional</option>
+                                <option value="california">California</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="region-filter">Region:</label>
+                            <select id="region-filter">
+                                <option value="all">All Regions</option>
+                                <option value="Northeast">Northeast</option>
+                                <option value="Midwest">Midwest</option>
+                                <option value="South">South</option>
+                                <option value="West">West</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="cms-failure-filter">CMS Failures:</label>
+                            <select id="cms-failure-filter">
+                                <option value="all">All Plans</option>
+                                <option value="no-failures">No Failures</option>
+                                <option value="has-failures">Has Failures</option>
+                                <option value="critical-failures">Critical Failures</option>
+                                <option value="high-failures">High Impact</option>
+                                <option value="medium-failures">Medium Impact</option>
+                                <option value="low-failures">Low Impact</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="search-results-info" id="search-results-info" style="display: none;">
+                        <div class="results-summary">
+                            <span class="results-count" id="results-count">0</span>
+                            <span class="results-text"> of <span id="total-plans-count">0</span> plans found</span>
+                        </div>
+                        <div class="filter-status" id="filter-status"></div>
+                        <div class="data-source-info" id="data-source-info">
+                            <i class="fas fa-database"></i> 
+                            <span id="data-source-text">Loading data...</span>
+                        </div>
+                        <button class="btn btn-secondary btn-small" id="clear-all-filters">Clear All Filters</button>
+                    </div>
+
+                    <div class="plans-table-container">
+                        <table class="plans-table" id="plans-table">
+                            <thead>
+                                <tr>
+                                    <th>Plan Name</th>
+                                    <th>Type</th>
+                                    <th>State</th>
+                                    <th>Region</th>
+                                    <th>STAR Rating</th>
+                                    <th>NCQA Rating</th>
+                                    <th>Members</th>
+                                    <th>CMS Issues</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="plans-tbody">
+                                <!-- Plans will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Plan Comparison Section -->
+                <section id="comparison" class="section">
+                    <h2>Plan Comparison</h2>
+                    <div class="comparison-controls">
+                        <button class="btn btn-primary" id="add-to-comparison">Add Selected Plans</button>
+                        <button class="btn btn-secondary" id="clear-comparison">Clear Comparison</button>
+                        <button class="btn btn-secondary" id="export-comparison" style="display: none;">Export Comparison</button>
+                    </div>
+                    <div class="selection-count" id="selection-count">0/4 plans selected</div>
+                    <div class="comparison-grid" id="comparison-grid">
+                        <p class="placeholder-text">Select plans from the overview to compare them here</p>
+                    </div>
+                </section>
+
+                <!-- STAR Analysis Section -->
+                <section id="star-analysis" class="section">
+                    <h2>STAR Rating Analysis</h2>
+                    <div class="star-breakdown">
+                        <div class="star-chart">
+                            <h3>STAR Rating Distribution</h3>
+                            <div class="star-bars" id="star-bars">
+                                <!-- Star distribution bars will be here -->
+                            </div>
+                        </div>
+                        <div class="star-factors">
+                            <h3>STAR Rating Factors</h3>
+                            <div class="factors-grid" id="factors-grid">
+                                <!-- Rating factors will be here -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Member Analysis Section -->
+                <section id="member-analysis" class="section">
+                    <h2>Member Analysis</h2>
+                    <div class="member-analysis-grid">
+                        <div class="member-summary">
+                            <h3>Member Summary</h3>
+                            <div class="member-stats">
+                                <div class="member-stat">
+                                    <span class="stat-label">Largest Plan:</span>
+                                    <span class="stat-value" id="largest-plan">-</span>
+                                </div>
+                                <div class="member-stat">
+                                    <span class="stat-label">Smallest Plan:</span>
+                                    <span class="stat-value" id="smallest-plan">-</span>
+                                </div>
+                                <div class="member-stat">
+                                    <span class="stat-label">Average Members:</span>
+                                    <span class="stat-value" id="avg-members">-</span>
+                                </div>
+                                <div class="member-stat">
+                                    <span class="stat-label">Total Members:</span>
+                                    <span class="stat-value" id="total-members-display">-</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-distribution">
+                            <h3>Member Distribution by Plan Type</h3>
+                            <div class="plan-type-members" id="plan-type-members">
+                                <!-- Plan type member breakdown will be here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-chart-full">
+                        <h3>Member Count by Plan</h3>
+                        <div class="member-bars" id="member-bars">
+                            <!-- Individual plan member bars will be here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CMS Criteria Section -->
+                <section id="cms-criteria" class="section">
+                    <h2>CMS Criteria Analysis</h2>
+                    <div class="cms-overview">
+                        <p>This section shows how plans perform against specific CMS quality measures and identifies areas for improvement.</p>
+                        <div class="cms-metrics" id="cms-metrics">
+                            <!-- CMS metrics will be here -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Plan Detail Modal -->
+        <div id="plan-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="plan-detail-content">
+                    <!-- Plan details will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Modal -->
+        <div id="help-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="help-content">
+                    <h2>Keyboard Shortcuts & Help</h2>
+                    <div class="help-section">
+                        <h3>Navigation</h3>
+                        <div class="shortcut-list">
+                            <div class="shortcut-item">
+                                <span class="key">1</span>
+                                <span class="description">Overview</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <span class="key">2</span>
+                                <span class="description">Plan Comparison</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <span class="key">3</span>
+                                <span class="description">STAR Analysis</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <span class="key">4</span>
+                                <span class="description">Member Analysis</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <span class="key">5</span>
+                                <span class="description">CMS Criteria</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="help-section">
+                        <h3>Actions</h3>
+                        <div class="shortcut-list">
+                            <div class="shortcut-item">
+                                <span class="key">Ctrl/Cmd + K</span>
+                                <span class="description">Focus Search</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <span class="key">Ctrl/Cmd + E</span>
+                                <span class="description">Export Comparison</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <span class="key">Ctrl/Cmd + R</span>
+                                <span class="description">Refresh Data</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <span class="key">Esc</span>
+                                <span class="description">Close Modal</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="help-section">
+                        <h3>Tips</h3>
+                        <ul class="tips-list">
+                            <li>Click on table headers to sort by different columns</li>
+                            <li>Hover over plan names to see quick details</li>
+                            <li>Use filters to narrow down your search</li>
+                            <li>Select up to 4 plans for comparison</li>
+                            <li>Export your comparison data as CSV</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
