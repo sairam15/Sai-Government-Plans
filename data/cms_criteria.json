@@ -1,0 +1,38 @@
+[
+  {
+    "plan_id": "MA001",
+    "criteria_name": "Customer Service",
+    "criteria_value": "Pass",
+    "impact_level": "Low"
+  },
+  {
+    "plan_id": "MA001",
+    "criteria_name": "Network Adequacy",
+    "criteria_value": "Pass",
+    "impact_level": "Medium"
+  },
+  {
+    "plan_id": "MA002",
+    "criteria_name": "Quality Reporting",
+    "criteria_value": "Fail",
+    "impact_level": "High"
+  },
+  {
+    "plan_id": "MA003",
+    "criteria_name": "Appeals Process",
+    "criteria_value": "Pass",
+    "impact_level": "Medium"
+  },
+  {
+    "plan_id": "MA004",
+    "criteria_name": "Pharmacy Network",
+    "criteria_value": "Fail",
+    "impact_level": "Critical"
+  },
+  {
+    "plan_id": "MA005",
+    "criteria_name": "Preventive Care",
+    "criteria_value": "Pass",
+    "impact_level": "Low"
+  }
+]

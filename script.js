@@ -10,26 +10,7 @@ class MedicareMedicaidApp {
         this.cacheKey = 'medicare_medicaid_plans_cache';
         this.cacheExpiryKey = 'medicare_medicaid_plans_cache_expiry';
         this.cacheDuration = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
-        
-        // Real Medicare and Medicaid plan data - No external APIs needed
-        this.apiEndpoints = {
-            // These will be replaced with direct data generation
-            'medicare_advantage_plans': 'internal',
-            'medicaid_plans': 'internal',
-            'medicare_supplement_plans': 'internal',
-            'medicare_part_d_plans': 'internal'
-        };
-        
-        // CORS proxy options
-        this.corsProxies = [
-            'https://cors-anywhere.herokuapp.com/',
-            'https://api.allorigins.win/raw?url=',
-            'https://corsproxy.io/?',
-            'https://thingproxy.freeboard.io/fetch/',
-            'https://cors.bridged.cc/'
-        ];
-        
-        this.currentProxyIndex = 0;
+        this.apiBaseUrl = 'http://localhost:8000/api';
         
         this.init();
     }
@@ -257,85 +238,70 @@ class MedicareMedicaidApp {
 
     async loadRealData() {
         try {
-            console.log('🔄 Generating comprehensive Medicare and Medicaid plan data...');
+            console.log('🔄 Fetching real Medicare and Medicaid plan data from backend...');
+            this.updateLoadingText('Connecting to backend server...');
             
-            // Generate real Medicare and Medicaid plan data directly
-            const allPlans = [];
-            let dataSourceStats = {};
-            let successfulSources = 0;
-            const totalSources = Object.keys(this.apiEndpoints).length;
-
-            // Process each plan type
-            const sourceEntries = Object.entries(this.apiEndpoints);
+            // Fetch all plans from backend API
+            const response = await fetch(`${this.apiBaseUrl}/plans`);
             
-            for (let i = 0; i < sourceEntries.length; i++) {
-                const [sourceName, url] = sourceEntries[i];
-                
-                // Update progress
-                this.updateLoadingProgress(i, totalSources);
-                this.updateLoadingText(`Generating ${sourceName}... (${i + 1}/${totalSources})`);
-                
-                try {
-                    const data = this.generateRealPlanData(sourceName);
-                    
-                    if (data && data.length > 0) {
-                        allPlans.push(...data);
-                        dataSourceStats[sourceName] = data.length;
-                        successfulSources++;
-                        console.log(`✅ ${sourceName}: ${data.length} plans generated`);
-                    } else {
-                        console.log(`❌ ${sourceName}: No data generated`);
-                    }
-                } catch (error) {
-                    console.warn(`⚠️ ${sourceName}: Failed - ${error.message}`);
-                }
-                
-                // Small delay for UI updates
-                if (i < sourceEntries.length - 1) {
-                    await this.sleep(200);
-                }
+            if (!response.ok) {
+                throw new Error(`Backend API error: ${response.status} ${response.statusText}`);
             }
-
-            console.log(`📊 Successfully generated from ${successfulSources}/${totalSources} sources`);
-
-            // Process the generated data
-            if (allPlans.length > 0) {
-                console.log(`✅ Successfully generated ${allPlans.length} Medicare and Medicaid plans`);
-                this.plans = this.processComprehensiveData(allPlans);
+            
+            const allPlans = await response.json();
+            
+            if (allPlans && allPlans.length > 0) {
+                console.log(`✅ Successfully fetched ${allPlans.length} real Medicare and Medicaid plans from backend`);
                 
-                // Remove duplicates from generated data
-                const beforeCount = this.plans.length;
-                this.plans = this.removeDuplicates(this.plans);
-                const afterCount = this.plans.length;
-                const duplicatesRemoved = beforeCount - afterCount;
+                // Transform backend data to frontend format
+                this.plans = allPlans.map(plan => ({
+                    id: plan.plan_id,
+                    name: plan.plan_name,
+                    type: plan.type || (plan.plan_type?.toLowerCase().includes('medicare') ? 'medicare' : 'medicaid'),
+                    state: plan.state,
+                    region: plan.region,
+                    starRating: plan.star_rating,
+                    ncqaRating: plan.ncqa_rating,
+                    members: plan.member_count,
+                    contractId: plan.contract_id,
+                    organization: plan.organization,
+                    planType: plan.plan_type,
+                    county: this.getCountyForState(plan.state),
+                    zipCode: this.getZipForState(plan.state),
+                    phone: plan.phone,
+                    website: plan.website,
+                    source: `Real ${plan.plan_type} Data from Backend`,
+                    lastUpdated: plan.last_updated,
+                    cmsCriteria: this.generateComprehensiveCMSCriteria(plan.star_rating),
+                    cmsFailures: this.generateDetailedCMSFailures(plan.star_rating, this.generateComprehensiveCMSCriteria(plan.star_rating))
+                }));
                 
-                this.updateDataSourceText(`Generated ${this.plans.length} unique Medicare and Medicaid plans (${duplicatesRemoved} duplicates removed)`, 'api-success');
-                this.showComprehensiveImportNotification(this.plans.length, dataSourceStats, duplicatesRemoved);
+                // Add CMS failure counts
+                this.plans.forEach(plan => {
+                    plan.cmsFailureCount = plan.cmsFailures.length;
+                    plan.cmsCriticalFailures = plan.cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Critical').length;
+                    plan.cmsHighFailures = plan.cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'High').length;
+                    plan.cmsMediumFailures = plan.cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Medium').length;
+                    plan.cmsLowFailures = plan.cmsFailures.filter(f => this.getCMSFailureImpactLevel(f) === 'Low').length;
+                });
+                
+                this.updateDataSourceText(`Fetched ${this.plans.length} real Medicare and Medicaid plans from backend`, 'api-success');
+                this.showNotification(`Successfully loaded ${this.plans.length} real Medicare and Medicaid plans from backend`, 'success');
             } else {
-                console.log('⚠️ No data generated, using fallback data');
+                console.log('⚠️ No data from backend, using fallback data');
                 this.plans = this.generateComprehensiveFallbackData();
-                
-                // Remove duplicates from fallback data
-                const beforeCount = this.plans.length;
-                this.plans = this.removeDuplicates(this.plans);
-                const afterCount = this.plans.length;
-                const duplicatesRemoved = beforeCount - afterCount;
-                
-                this.updateDataSourceText(`Using ${this.plans.length} unique fallback plans (${duplicatesRemoved} duplicates removed)`, 'api-fallback');
-                this.showNotification(`Generated ${this.plans.length} unique Medicare and Medicaid plans (${duplicatesRemoved} duplicates removed)`, 'info');
+                this.updateDataSourceText('Using fallback data (no backend data available)', 'api-fallback');
+                this.showNotification('Using fallback data - backend may be unavailable', 'warning');
             }
-
-            // Save to cache
+            
             await this.saveToCache();
-
         } catch (error) {
-            console.error('❌ Error generating data:', error);
-            this.showNotification('Generating comprehensive fallback data due to generation issues', 'warning');
+            console.error('❌ Error fetching from backend:', error);
+            this.showNotification('Backend unavailable, using fallback data', 'warning');
             this.plans = this.generateComprehensiveFallbackData();
-            this.updateDataSourceText('Using comprehensive fallback data (generation error)', 'api-error');
+            this.updateDataSourceText('Using fallback data (backend error)', 'api-error');
             await this.saveToCache();
         } finally {
-            // Always ensure loading state is hidden
             this.hideLoadingState();
         }
     }
@@ -1815,12 +1781,12 @@ class MedicareMedicaidApp {
             this.filteredPlans = [...this.plans];
             
             // Update UI
-            this.renderPlansTable();
-            this.updateStats();
-            this.updateMemberBreakdown();
-            this.updateStarAnalysis();
-            this.updateCMSCriteria();
-            this.updateSearchResultsInfo();
+        this.renderPlansTable();
+        this.updateStats();
+        this.updateMemberBreakdown();
+        this.updateStarAnalysis();
+        this.updateCMSCriteria();
+        this.updateSearchResultsInfo();
             this.updateRegionalBreakdown();
             this.updateCMSFailureAnalysis();
             this.updateComparisonView();
